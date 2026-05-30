@@ -543,6 +543,81 @@
     }
     .tl-text { font-size: 0.875rem; color: var(--text); }
 
+    /* Route variants */
+    .route-variants { margin-bottom: 1.25rem; }
+    .route-variants-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .variant {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem 0.75rem;
+      align-items: start;
+    }
+    .variant.recommended {
+      border-color: rgba(74,140,92,0.4);
+      background: rgba(74,140,92,0.07);
+    }
+    .variant-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      background: var(--surface-3);
+      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+      margin-top: 0.1rem;
+    }
+    .variant.recommended .variant-num {
+      background: var(--green);
+      color: #fff;
+    }
+    .variant-body { display: flex; flex-direction: column; gap: 0.25rem; }
+    .variant-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .variant-rec-badge {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--green);
+      color: #fff;
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+    }
+    .variant-route { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+    .variant-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+    .variant-stat {
+      font-size: 0.72rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.45rem;
+      color: var(--text-muted);
+    }
+    .variant-note { font-size: 0.75rem; color: var(--text-dim); font-style: italic; margin-top: 0.2rem; }
+
     /* Info chips row */
     .day-info-row {
       display: flex;
@@ -567,6 +642,27 @@
       border-color: rgba(201,90,58,0.25);
       color: #d48070;
     }
+
+    /* ── Cultural Tips ──────────────────────────────────────────── */
+    .tips-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .tips-grid { grid-template-columns: repeat(2, 1fr); } }
+    .tip-card {
+      display: flex;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .tip-card:hover { border-color: var(--border-light); }
+    .tip-icon { font-size: 1.75rem; flex-shrink: 0; line-height: 1; margin-top: 0.1rem; }
+    .tip-body { display: flex; flex-direction: column; gap: 0.35rem; }
+    .tip-title { font-weight: 600; font-size: 0.9rem; color: var(--text); }
+    .tip-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
 
     /* ── SPA Section ─────────────────────────────────────────────── */
     #spa { background: var(--surface); }
@@ -786,6 +882,7 @@
   <ul class="nav-links">
     <li><a href="#base">Bazė</a></li>
     <li><a href="#itinerary">Dienotvarkė</a></li>
+    <li><a href="#tips">Patarimai</a></li>
     <li><a href="#spa">SPA</a></li>
     <li><a href="#budget">Biudžetas</a></li>
     <li><a href="#packing">Ką paimti</a></li>
@@ -901,6 +998,60 @@
               <span class="hike-chip">⏱ 4–5 val.</span>
               <span class="hike-chip">📍 Ustrzyki Górne</span>
             </div>
+            <div class="route-variants">
+              <div class="route-variants-title">🧭 Maršruto variantai</div>
+              <div class="variant recommended">
+                <span class="variant-num">1</span>
+                <div class="variant-body">
+                  <div class="variant-name">Traversas <span class="variant-rec-badge">Rekomenduojama</span></div>
+                  <div class="variant-route">Ustrzyki Górne → raudonas takas → Viršūnė → Brzegi Górne / Przełęcz Wyżniańska</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 9 km</span>
+                    <span class="variant-stat">⏱ 3,5–4 val.</span>
+                    <span class="variant-stat">↑ 600 m</span>
+                  </div>
+                  <div class="variant-note">Automobilį paliekate starte, gale sėdate į mikroautobusą atgal (~15–20 min).</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">2</span>
+                <div class="variant-body">
+                  <div class="variant-name">Pirmyn–atgal</div>
+                  <div class="variant-route">Ustrzyki Górne → Viršūnė → tuo pačiu taku atgal</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 18 km</span>
+                    <span class="variant-stat">⏱ 6,5–8 val.</span>
+                    <span class="variant-stat">↑ 900 m</span>
+                  </div>
+                  <div class="variant-note">Fiziškai sunkus — stačius nusileidimus/pakilimus kartojate dukart.</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">3</span>
+                <div class="variant-body">
+                  <div class="variant-name">Mažoji kilpa</div>
+                  <div class="variant-route">Ustrzyki Górne → raudonas takas → Viršūnė → nusileidimas žaliu taku į Przełęcz Wyżniańska</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 7–8 km</span>
+                    <span class="variant-stat">⏱ 3,5–4 val.</span>
+                  </div>
+                  <div class="variant-note">Reikia transporto (autobuso) atgal į Ustrzyki Górne.</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">4</span>
+                <div class="variant-body">
+                  <div class="variant-name">Didžioji kilpa — be transporto</div>
+                  <div class="variant-route">Ustrzyki Górne → Caryńska → Brzegi Górne → žalias takas → Mała Rawka → mėlynas takas atgal į Ustrzyki Górne</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 18–20 km</span>
+                    <span class="variant-stat">⏱ 7–8 val.</span>
+                    <span class="variant-stat">↑ 1000 m</span>
+                  </div>
+                  <div class="variant-note">Visos dienos iššūkis — jokio transporto reikia.</div>
+                </div>
+              </div>
+            </div>
             <ul class="timeline">
               <li><span class="tl-time">08:30</span><span class="tl-text">Pusryčiai apartamentuose</span></li>
               <li><span class="tl-time">09:30</span><span class="tl-text">Išvažiavimas į Ustrzyki Górne (~50 min.)</span></li>
@@ -912,7 +1063,6 @@
             </ul>
             <div class="day-info-row">
               <span class="info-chip tip">🐴 Galima pamatyti laukinius huculus arklius ir danielius!</span>
-              <span class="info-chip">🚌 Rekomenduojama: traversas + mikroautobusas atgal</span>
             </div>
           </div>
         </div>
@@ -937,17 +1087,69 @@
               <span class="hike-chip">⏱ 4–5 val.</span>
               <span class="hike-chip">📍 Wołosate</span>
             </div>
+            <div class="route-variants">
+              <div class="route-variants-title">🧭 Maršruto variantai</div>
+              <div class="variant recommended">
+                <span class="variant-num">1</span>
+                <div class="variant-body">
+                  <div class="variant-name">„Didysis ratas" <span class="variant-rec-badge">Rekomenduojama</span></div>
+                  <div class="variant-route">Wołosate → Tarnica → Halicz (1333 m) → Rozsypaniec (1282 m) → Przełęcz Bukowska → žvyrkeliu į Wołosate</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 19–20 km</span>
+                    <span class="variant-stat">⏱ 6,5–7,5 val.</span>
+                    <span class="variant-stat">↑ 950 m</span>
+                  </div>
+                  <div class="variant-note">Vaizdingiausia ketera su panorama į Ukrainą. Žiediniu būdu, nereikia transporto.</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">2</span>
+                <div class="variant-body">
+                  <div class="variant-name">Traversas į Ustrzyki Górne</div>
+                  <div class="variant-route">Wołosate → Tarnica → Szeroki Wierch → Ustrzyki Górne</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 10–11 km</span>
+                    <span class="variant-stat">⏱ 5–6 val.</span>
+                  </div>
+                  <div class="variant-note">Grįžimas mikroautobusu iš Ustrzyki Górne į Wołosate (~15 min).</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">3</span>
+                <div class="variant-body">
+                  <div class="variant-name">„Mažasis ratas" su transportu pradžioje</div>
+                  <div class="variant-route">Auto Wołosate → mikroautobusas į Ustrzyki Górne → Szeroki Wierch → Tarnica → mėlynu taku atgal į Wołosate</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 10 km</span>
+                    <span class="variant-stat">⏱ 5–6 val.</span>
+                  </div>
+                  <div class="variant-note">Sunkiausią dalį (Szeroki Wierch) įveikiate šviežiomis kojomis, finišas prie automobilio.</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">4</span>
+                <div class="variant-body">
+                  <div class="variant-name">Klasikinis pirmyn–atgal</div>
+                  <div class="variant-route">Wołosate → Tarnica → atgal tuo pačiu mėlynu taku</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 9 km</span>
+                    <span class="variant-stat">⏱ 3,5–4 val.</span>
+                  </div>
+                  <div class="variant-note">Greičiausias variantas, jokios logistikos. Trūkumas — grįžimas tuo pačiu vaizdu.</div>
+                </div>
+              </div>
+            </div>
             <ul class="timeline">
               <li><span class="tl-time">06:30</span><span class="tl-text">Ankstyvi pusryčiai</span></li>
               <li><span class="tl-time">07:00</span><span class="tl-text">Išvažiavimas į Wołosate ⚠️</span></li>
               <li><span class="tl-time">08:15</span><span class="tl-text">Pradžia — mėlynas takas iš Wołosate</span></li>
               <li><span class="tl-time">10:15</span><span class="tl-text">Tarnica viršūnė 1346 m — fotos, kava, pietūs 🏔️</span></li>
               <li><span class="tl-time">12:30</span><span class="tl-text">Nusileidimas</span></li>
-              <li><span class="tl-time">15:00</span><span class="tl-text">Sustojimas Leske — XIII a. sinagoga, senamiestis</span></li>
+              <li><span class="tl-time">15:00</span><span class="tl-text">Sustojimas Leske — XIII a. sinagoga, senamiestis 🕍</span></li>
               <li><span class="tl-time">18:00</span><span class="tl-text">Grilis apartamentuose 🔥</span></li>
             </ul>
             <div class="day-info-row">
-              <span class="info-chip tip">💡 Rekomenduojama: Didysis ratas per Halicz ir Rozsypaniec (~20 km)</span>
+              <span class="info-chip tip">🕍 Lesko: XIII a. sinagoga — lankoma grįžtant iš Tarnicos</span>
             </div>
           </div>
         </div>
@@ -1002,6 +1204,58 @@
               <span class="hike-chip">⏱ 5–6 val.</span>
               <span class="hike-chip">📍 Wetlina</span>
             </div>
+            <div class="route-variants">
+              <div class="route-variants-title">🧭 Maršruto variantai</div>
+              <div class="variant recommended">
+                <span class="variant-num">1</span>
+                <div class="variant-body">
+                  <div class="variant-name">Klasikinis traversas <span class="variant-rec-badge">Rekomenduojama</span></div>
+                  <div class="variant-route">Przełęcz Wyżna → geltonas takas → Chatka Puchatka → Połonina Wetlińska ketera → Smerek (1222 m) → nusileidimas į Kalnicą</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 14,5 km</span>
+                    <span class="variant-stat">⏱ ~6 val.</span>
+                  </div>
+                  <div class="variant-note">Auto paliekate Kalnicoje, taksi/busiuku į Przełęcz Wyżna. Geriausia pastangų/vaizdų proporcija.</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">2</span>
+                <div class="variant-body">
+                  <div class="variant-name">Žiedinis iš Wetlina (Vidutinis)</div>
+                  <div class="variant-route">Wetlina → geltonas takas → Przełęcz Orłowicza → Smerek viršūnė → atgal į Przełęcz Orłowicza → nusileidimas žaliu arba geltonu taku į Wetlina</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 11–12 km</span>
+                    <span class="variant-stat">⏱ 4,5–5 val.</span>
+                  </div>
+                  <div class="variant-note">Pilnai žiedinis, nereikia transporto. Be Chatka Puchatka lankymo.</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">3</span>
+                <div class="variant-body">
+                  <div class="variant-name">Trumpasis žiedinis (Lengvas)</div>
+                  <div class="variant-route">Wetlina → Przełęcz Orłowicza → Połonina Wetlińska dalis → Wetlina (Stare Sioło)</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 12–13 km</span>
+                    <span class="variant-stat">⏱ 4,5–5,5 val.</span>
+                  </div>
+                  <div class="variant-note">Be Chatka Puchatka — gerai, jei blogėja orai.</div>
+                </div>
+              </div>
+              <div class="variant">
+                <span class="variant-num">4</span>
+                <div class="variant-body">
+                  <div class="variant-name">Ištvermės iššūkis — pilna ketera</div>
+                  <div class="variant-route">Brzegi Górne → Chatka Puchatka → visa Połonina Wetlińska → Smerek → Kalnica</div>
+                  <div class="variant-stats">
+                    <span class="variant-stat">🗺 16,5 km</span>
+                    <span class="variant-stat">⏱ 6,5–7,5 val.</span>
+                    <span class="variant-stat">↑ ~850 m</span>
+                  </div>
+                  <div class="variant-note">Stačiausias startas iš Brzegi Górne — surenkama visa keteros panorama nuo galo iki galo.</div>
+                </div>
+              </div>
+            </div>
             <ul class="timeline">
               <li><span class="tl-time">08:00</span><span class="tl-text">Sotūs pusryčiai — diena ilga</span></li>
               <li><span class="tl-time">09:00</span><span class="tl-text">Išvažiavimas į Wetliną (~50 min.)</span></li>
@@ -1012,7 +1266,7 @@
               <li><span class="tl-time">18:30</span><span class="tl-text">Vakarienė restorane Baligróde</span></li>
             </ul>
             <div class="day-info-row">
-              <span class="info-chip tip">💡 Rekomenduojama: klasikinis traversas Przełęcz Wyżna → Smerek → Kalnica</span>
+              <span class="info-chip tip">💡 Kalvotas reljefas — apsvarstykite elektrinius dviračius!</span>
             </div>
           </div>
         </div>
@@ -1046,9 +1300,10 @@
               <li><span class="tl-time">18:00</span><span class="tl-text">Vakarienė Sanoke — Karczma Jadło Karpackie 🍽️</span></li>
             </ul>
             <div class="day-info-row">
-              <span class="info-chip">🎨 Didžiausia Beksińskio kolekcija pasaulyje</span>
+              <span class="info-chip">🎨 Didžiausia Z. Beksińskio kolekcija pasaulyje</span>
               <span class="info-chip">🎟 ~25 PLN/žm. bilietai</span>
               <span class="info-chip tip">💡 Muziejus iki 17–18:00 — atvykti iki 16:00!</span>
+              <span class="info-chip tip">⚡ Rekomenduojama: elektriniai dviračiai dėl kalvoto reljefo (~35 km, ~450 m pakilimas)</span>
             </div>
           </div>
         </div>
@@ -1111,6 +1366,46 @@
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Cultural Tips ────────────────────────────────────────────── -->
+<section id="tips">
+  <div class="container">
+    <h2 class="section-title aos">Kultūra ir patarimai</h2>
+    <p class="section-lead aos">Svarbi informacija prieš išvykstant.</p>
+    <div class="tips-grid">
+      <div class="tip-card aos">
+        <div class="tip-icon">🖼️</div>
+        <div class="tip-body">
+          <div class="tip-title">Beksińskio muziejus Sanoke</div>
+          <div class="tip-text">Didžiausia Z. Beksińskio kolekcija pasaulyje — Sanoko karališkoje pilyje. Muziejus dirba iki 17:00–18:00 (vasarą), geriausia atvykti iki 16:00. Bilietas ~25 PLN/žm., grupiniai bilietai lengvatiniai. Tikrinkite muzeum.sanok.pl prieš vykstant.</div>
+        </div>
+      </div>
+      <div class="tip-card aos aos-delay-1">
+        <div class="tip-icon">🕍</div>
+        <div class="tip-body">
+          <div class="tip-title">Lesko: XIII a. sinagoga</div>
+          <div class="tip-text">Lankoma grįžtant iš Tarnicos žygio (3-ia diena). Viena geriausiai išlikusių sinagogų Lenkijoje — saugoma UNESCO. Lesko senamiestis vertas trumpo pasivaikščiojimo.</div>
+        </div>
+      </div>
+      <div class="tip-card aos">
+        <div class="tip-icon">🚂</div>
+        <div class="tip-body">
+          <div class="tip-title">Bieszczadzka Kolejka Leśna — siaurasis geležinkelis</div>
+          <div class="tip-text">Bilietus būtina pirkti internetu iš anksto — sezono metu (vasarą) jie išsiperka per kelias dienas! Nedelskite su rezervacija. kolejka.bieszczady.pl · +48 13 468 63 35</div>
+        </div>
+      </div>
+      <div class="tip-card aos aos-delay-1">
+        <div class="tip-icon">⚡</div>
+        <div class="tip-body">
+          <div class="tip-title">Dviračiai prie Solinos — elektriniai!</div>
+          <div class="tip-text">BTR loop'as aplink Soliną (~35 km, ~450 m pakilimas) yra kalvotas. Rekomenduojama rinktis elektrinius dviračius — nuoma „Bike Bieszczady" Polańczyk miestelyje. Taupysite jėgas Beksińskio muziejui.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
