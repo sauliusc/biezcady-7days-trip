@@ -543,6 +543,81 @@
     }
     .tl-text { font-size: 0.875rem; color: var(--text); }
 
+
+    /* Variant details collapsible */
+    .variant-details-btn {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.7rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      font-family: var(--font-body);
+      transition: color 0.2s, border-color 0.2s;
+      display: inline-block;
+    }
+    .variant-details-btn:hover { color: var(--accent); border-color: rgba(201,168,76,0.5); }
+    .variant-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .variant-details.open { max-height: 600px; }
+    .vd-inner {
+      padding-top: 0.75rem;
+      margin-top: 0.6rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .vd-section-title {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .vd-parking-item {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+      line-height: 1.5;
+    }
+    .vd-parking-item a { color: var(--accent); text-decoration: none; font-size: 0.72rem; }
+    .vd-parking-item a:hover { text-decoration: underline; }
+    .vd-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .vd-link {
+      font-size: 0.72rem;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      color: var(--text-muted);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .vd-link:hover { color: var(--accent); border-color: rgba(201,168,76,0.4); }
+    .vd-link.alltrails { border-color: rgba(67,160,71,0.35); color: #5db060; }
+    .vd-link.alltrails:hover { border-color: #43a047; color: #43a047; }
+    .vd-waypoints {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .vd-note {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      background: var(--surface-2);
+      border-left: 2px solid var(--accent);
+      padding: 0.4rem 0.7rem;
+      border-radius: 0 4px 4px 0;
+      line-height: 1.5;
+    }
+
     /* Route variants */
     .route-variants { margin-bottom: 1.25rem; }
     .route-variants-title {
@@ -1011,6 +1086,29 @@
                     <span class="variant-stat">↑ 600 m</span>
                   </div>
                   <div class="variant-note">Automobilį paliekate starte, gale sėdate į mikroautobusą atgal (~15–20 min).</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Ustrzyki Górne</strong> — palikite automobilį čia (starto taškas)<br>GPS: 49.1028, 22.6503 · Mokamas ~30 PLN/dieną · BdPN bilieto punktas<br><a href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">🚌 <strong>Grįžimas:</strong> Brzegi Górne → mikroautobusas → Ustrzyki Górne (~15–20 min, kelios PLN). Vasarą kursuoja dažnai.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Ustrzyki Górne (820m) → Połonina Caryńska viršūnė (1297m) → Wielka Rawka (1304m) → pievų keteros ridge → Brzegi Górne / Przełęcz Wyżniańska (1044m)</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/brzegi-gorne-polonina-carynska-ustrzyki-gorne" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">📍 Parkavimas (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">💶 BdPN bilietas: ~12–20 PLN/asm. Perkamas įvažiavimo punkte. 🔴 Takas: <strong>raudonas</strong>.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1024,6 +1122,28 @@
                     <span class="variant-stat">↑ 900 m</span>
                   </div>
                   <div class="variant-note">Fiziškai sunkus — stačius nusileidimus/pakilimus kartojate dukart.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Ustrzyki Górne</strong> — palikite automobilį čia (startas ir finišas)<br>GPS: 49.1028, 22.6503 · Mokamas ~30 PLN/dieną<br><a href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">Google Maps ↗</a></div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Ustrzyki Górne (820m) → Połonina Caryńska viršūnė (1297m) → ta pačia ketera atgal → Ustrzyki Górne</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/ustrzyki-gorne-polonina-carynska-przelecz-wyznianska-krzemieniec" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">📍 Parkavimas (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">⚠️ Atgaliniai stačiausi pakilimų atkarpai teks kartoti — fiziškai labai sunkus. 🔴 Takas: <strong>raudonas</strong>.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1036,6 +1156,29 @@
                     <span class="variant-stat">⏱ 3,5–4 val.</span>
                   </div>
                   <div class="variant-note">Reikia transporto (autobuso) atgal į Ustrzyki Górne.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Ustrzyki Górne</strong> — palikite automobilį čia<br>GPS: 49.1028, 22.6503 · Mokamas ~30 PLN/dieną<br><a href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">🚌 <strong>Grįžimas iš Przełęcz Wyżniańska:</strong> autobusas → Ustrzyki Górne (~6 km keliu). Vasarą kursuoja.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Ustrzyki Górne (820m) → Połonina Caryńska viršūnė (1297m) → žalias takas žemyn → Przełęcz Wyżniańska (1044m)</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/ustrzyki-gorne-polonina-carynska-przelecz-wyznianska-krzemieniec" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1249,22.5916" target="_blank">📍 Przełęcz Wyżniańska (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🔴→🟢 Takai: <strong>raudonas</strong> į viršūnę, <strong>žalias</strong> žemyn į perėją.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1049,6 +1192,29 @@
                     <span class="variant-stat">↑ 1000 m</span>
                   </div>
                   <div class="variant-note">Visos dienos iššūkis — jokio transporto reikia.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Ustrzyki Górne</strong> — palikite automobilį čia (startas ir finišas)<br>GPS: 49.1028, 22.6503 · Mokamas ~30 PLN/dieną<br><a href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">✅ <strong>Jokio transporto nereikia</strong> — pilnai žiedinis maršrutas.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Ustrzyki Górne (820m) → Połonina Caryńska (1297m) → Brzegi Górne → žalias takas ↑ → Mała Rawka (1272m) → Wielka Rawka (1304m) → mėlynas takas ↓ → Ustrzyki Górne</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/ustrzyki-gorne-polonina-carynska-przelecz-wyznianska-krzemieniec" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">📍 Parkavimas (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🔴→🟢→🔵 Takai: <strong>raudonas</strong> (viršūnė) → <strong>žalias</strong> (kilimas) → <strong>mėlynas</strong> (grįžimas). Visos dienos žygis!</div>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
@@ -1100,6 +1266,29 @@
                     <span class="variant-stat">↑ 950 m</span>
                   </div>
                   <div class="variant-note">Vaizdingiausia ketera su panorama į Ukrainą. Žiediniu būdu, nereikia transporto.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Wołosate BdPN</strong> — palikite automobilį čia (startas ir finišas)<br>GPS: 49.0663, 22.6802 · Mokamas ~30 PLN/dieną · <strong>⚠️ Užsipildo iki 09:00!</strong><br><a href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">✅ <strong>Jokio transporto nereikia</strong> — žiedinis maršrutas.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Wołosate (640m) → mėlynas takas ↑ → <strong>Tarnica (1346m)</strong> → Przełęcz pod Tarnicą → Przełęcz Goprowska → <strong>Halicz (1333m)</strong> → <strong>Rozsypaniec (1282m)</strong> → Przełęcz Bukowska → žvyrkeliu ↓ → Wołosate</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/wolosate-tarnica-halicz-rozsypaniec" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">📍 Wołosate parkavimas ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🔵→🔴 Takai: <strong>mėlynas</strong> į Tarnicą, <strong>raudonas GSB</strong> atgal per Halicz → Rozsypaniec. Eikite prieš laikrodžio rodyklę (Tarnica pirma). Panorama į Ukrainą nuo Halicz.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1112,6 +1301,29 @@
                     <span class="variant-stat">⏱ 5–6 val.</span>
                   </div>
                   <div class="variant-note">Grįžimas mikroautobusu iš Ustrzyki Górne į Wołosate (~15 min).</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Wołosate BdPN</strong> — palikite automobilį čia (startas)<br>GPS: 49.0663, 22.6802 · Mokamas ~30 PLN/dieną · <strong>⚠️ Atvykti iki 09:00!</strong><br><a href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">🚌 <strong>Grįžimas:</strong> ECO MELEX elektrinis keleivinis iš Ustrzyki Górne → Wołosate (~15 min). Vasarą 7:00–19:00. Arba: vietinis autobusas.<br><a href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">Ustrzyki Górne finišas (Maps) ↗</a></div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Wołosate (640m) → mėlynas takas ↑ → <strong>Tarnica (1346m)</strong> → raudonas GSB takas → <strong>Szeroki Wierch (1253m)</strong> → nusileidimas ↓ → Ustrzyki Górne (820m)</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/wolosate-tarnica-szeroki-wierch-ustrzyki-gorne" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">📍 Wołosate (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🔵→🔴 Takai: <strong>mėlynas</strong> į Tarnicą, <strong>raudonas GSB</strong> per Szeroki Wierch į Ustrzyki Górne.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1124,6 +1336,29 @@
                     <span class="variant-stat">⏱ 5–6 val.</span>
                   </div>
                   <div class="variant-note">Sunkiausią dalį (Szeroki Wierch) įveikiate šviežiomis kojomis, finišas prie automobilio.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Wołosate BdPN</strong> — palikite automobilį čia (finišas)<br>GPS: 49.0663, 22.6802 · Mokamas ~30 PLN/dieną · <strong>⚠️ Atvykti iki 09:00!</strong><br><a href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">🚌 <strong>Pradžia:</strong> ECO MELEX iš Wołosate → Ustrzyki Górne (7:00–19:00, gegužė–spalis). Tada žiediniu taku grįžtate prie automobilio.<br><a href="https://maps.google.com/?q=49.1028,22.6503" target="_blank">Ustrzyki Górne startas (Maps) ↗</a></div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Ustrzyki Górne (820m) [ECO MELEX →] → raudonas GSB ↑ → <strong>Szeroki Wierch (1253m)</strong> → raudonas GSB → <strong>Tarnica (1346m)</strong> → mėlynas takas ↓ → Wołosate (640m)</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/ustrzyki-gorne-wolosate-tarnica-szeroki-wierch" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">📍 Wołosate (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🔴→🔵 Takai: <strong>raudonas GSB</strong> kilimas per Szeroki Wierch, <strong>mėlynas</strong> nusileidimas. Sunkiausią atkarpą įveikiate šviežiomis kojomis.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1136,6 +1371,29 @@
                     <span class="variant-stat">⏱ 3,5–4 val.</span>
                   </div>
                   <div class="variant-note">Greičiausias variantas, jokios logistikos. Trūkumas — grįžimas tuo pačiu vaizdu.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Wołosate BdPN</strong> — palikite automobilį čia (startas ir finišas)<br>GPS: 49.0663, 22.6802 · Mokamas ~30 PLN/dieną · <strong>⚠️ Atvykti iki 09:00!</strong><br><a href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">✅ <strong>Jokio transporto nereikia</strong> — tas pats takas į abi puses.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Wołosate (640m) → mėlynas takas ↑ (25 pažintinių stendų kelyje) → <strong>Tarnica (1346m)</strong> → tas pats mėlynas takas ↓ → Wołosate (640m)</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/wolosate-tarnica" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/sciezka-przyrodniczo-historyczna-wolosate-tarnica/" target="_blank">🏛️ BdPN — oficialus takas ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.0663,22.6802" target="_blank">📍 Wołosate (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🔵 Takas: <strong>mėlynas</strong> — oficialus BdPN pažintinis-istorinis takas „Wołosate–Tarnica". 25 edukaciniai stendai pakeliui.</div>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
@@ -1216,6 +1474,31 @@
                     <span class="variant-stat">⏱ ~6 val.</span>
                   </div>
                   <div class="variant-note">Auto paliekate Kalnicoje, taksi/busiuku į Przełęcz Wyżna. Geriausia pastangų/vaizdų proporcija.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Kalnica</strong> — palikite automobilį čia (finišas)<br>GPS: 49.1849, 22.4317 · Nemokamas parkavimas<br><a href="https://maps.google.com/?q=49.1849,22.4317" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">🚕 <strong>Taksi/busiukas iš Kalnica → Przełęcz Wyżna</strong> (startas): ~15 PLN/asm. Suderinkite iš anksto arba per vietos taksi.<br><a href="https://maps.google.com/?q=49.1413,22.5482" target="_blank">Przełęcz Wyżna startas (Maps) ↗</a></div>
+                    <div class="vd-parking-item">💡 Arba palikite vieną automobilį Kalnicoje, kitą — Przełęcz Wyżna (~40 PLN parkavimas).</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Przełęcz Wyżna (872m) → geltonas takas ↑ → <strong>Chatka Puchatka (1228m)</strong> — prieglauda, karšti gėrimai → Połonina Wetlińska ketera → Osadzki Wierch (1253m) → Przełęcz Orłowicza (1095m) → <strong>Smerek (1222m)</strong> → raudonas takas ↓ → Kalnica (550m)</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/przeecz-wyzna-chatka-puchatka-poonina-wetlinska-smerek-wetlina" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1849,22.4317" target="_blank">📍 Kalnica parkavimas ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1413,22.5482" target="_blank">📍 Przełęcz Wyżna startas ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🟡→🔴 Takai: <strong>geltonas</strong> į Chatka Puchatka, <strong>žalias/mėlynas</strong> ketera, <strong>raudonas</strong> žemyn į Kalnica. Chatka Puchatka — prieglauda su karštu maistu.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1228,6 +1511,29 @@
                     <span class="variant-stat">⏱ 4,5–5 val.</span>
                   </div>
                   <div class="variant-note">Pilnai žiedinis, nereikia transporto. Be Chatka Puchatka lankymo.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Wetlina (centras)</strong> — palikite automobilį čia (startas ir finišas)<br>GPS: 49.1584, 22.4646 · Mokamas ~20 PLN/dieną · Netoli PTTK prieglobsčio<br><a href="https://maps.google.com/?q=49.1584,22.4646" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">✅ <strong>Jokio transporto nereikia</strong> — žiedinis maršrutas.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Wetlina (560m) → geltonas takas ↑ → <strong>Przełęcz Orłowicza (1095m)</strong> → <strong>Smerek (1222m)</strong> → ta pačia atkarpa atgal → Przełęcz Orłowicza → geltonas/žalias takas ↓ → Wetlina</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/smerek-polonina-wetlinska" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1584,22.4646" target="_blank">📍 Wetlina parkavimas ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🟡 Takas: <strong>geltonas</strong> visas maršrutas. Be Chatka Puchatka — gerai, jei mažiau laiko arba prastėja orai.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1240,6 +1546,29 @@
                     <span class="variant-stat">⏱ 4,5–5,5 val.</span>
                   </div>
                   <div class="variant-note">Be Chatka Puchatka — gerai, jei blogėja orai.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Wetlina (centras)</strong> — palikite automobilį čia (startas ir finišas)<br>GPS: 49.1584, 22.4646 · Mokamas ~20 PLN/dieną<br><a href="https://maps.google.com/?q=49.1584,22.4646" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">✅ <strong>Jokio transporto nereikia</strong> — pilnai žiedinis.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Wetlina (560m) → geltonas takas ↑ → <strong>Przełęcz Orłowicza (1095m)</strong> → Połonina Wetlińska dalis → juodas takas per Jaworzec → Wetlina (Stare Sioło) arba grįžimas tuo pačiu taku</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/smerek-polonina-wetlinska" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1584,22.4646" target="_blank">📍 Wetlina parkavimas ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🟡→⬛ Takai: <strong>geltonas</strong> kilimas, <strong>juodas</strong> nusileidimas (Jaworzec). Geriausias variantas, jei blogėja orai arba grupė pavargusi.</div>
+                </div>
+              </div>
                 </div>
               </div>
               <div class="variant">
@@ -1253,6 +1582,31 @@
                     <span class="variant-stat">↑ ~850 m</span>
                   </div>
                   <div class="variant-note">Stačiausias startas iš Brzegi Górne — surenkama visa keteros panorama nuo galo iki galo.</div>
+              <button class="variant-details-btn">▼ Detalės, parkavimas, nuorodos</button>
+              <div class="variant-details">
+                <div class="vd-inner">
+                  <div>
+                    <div class="vd-section-title">🅿️ Parkavimas</div>
+                    <div class="vd-parking-item">🅿️ <strong>Brzegi Górne</strong> — palikite automobilį čia (startas)<br>GPS: 49.1417, 22.5685 · Mokamas ~30 PLN/dieną<br><a href="https://maps.google.com/?q=49.1417,22.5685" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">🅿️ <strong>Kalnica</strong> — antrasis automobilis čia (finišas) arba taksi atgal<br>GPS: 49.1849, 22.4317 · Nemokamas<br><a href="https://maps.google.com/?q=49.1849,22.4317" target="_blank">Google Maps ↗</a></div>
+                    <div class="vd-parking-item">💡 Rekomenduojama: du automobiliai — vienas Brzegi Górne, kitas Kalnica.</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🗺️ Tarpiniai taškai</div>
+                    <div class="vd-waypoints">Brzegi Górne (720m) → raudonas takas ↑ → <strong>Chatka Puchatka (1228m)</strong> → visa Połonina Wetlińska ketera → Osadzki Wierch (1253m) → Przełęcz Orłowicza (1095m) → <strong>Smerek (1222m)</strong> → raudonas takas ↓ → Kalnica (550m)</div>
+                  </div>
+                  <div>
+                    <div class="vd-section-title">🔗 Nuorodos</div>
+                    <div class="vd-links">
+                      <a class="vd-link alltrails" href="https://www.alltrails.com/trail/poland/subcarpathian-podkarpackie/brzegi-gorne-polonina-wetlinska-smerek" target="_blank">🟢 AllTrails ↗</a>
+                      <a class="vd-link" href="https://bdpn.gov.pl/turystyka/szlaki-piesze/" target="_blank">🏛️ BdPN oficialus ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1417,22.5685" target="_blank">📍 Brzegi Górne (Maps) ↗</a>
+                      <a class="vd-link" href="https://maps.google.com/?q=49.1849,22.4317" target="_blank">📍 Kalnica finišas (Maps) ↗</a>
+                    </div>
+                  </div>
+              <div class="vd-note">🔴 Takas: <strong>raudonas</strong> visas. Stačiausias startas — Brzegi Górne. Surenkama <em>visa</em> keteros panorama nuo galo iki galo.</div>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
@@ -1607,6 +1961,16 @@
   /* ── Collapsible day cards ───────────────────────────────────── */
   document.querySelectorAll('.day-body').forEach(body => {
     body.style.maxHeight = body.scrollHeight + 'px';
+  });
+
+  // Variant details collapsible
+  document.querySelectorAll('.variant-details-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const det = btn.nextElementSibling;
+      const open = det.classList.toggle('open');
+      btn.textContent = open ? '▲ Mažiau' : '▼ Detalės, parkavimas, nuorodos';
+    });
   });
 
   document.querySelectorAll('.day-toggle').forEach(btn => {
