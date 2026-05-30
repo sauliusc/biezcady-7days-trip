@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bieszczady 2025 — 8 dienų kelionė</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    /* ── Custom Properties ───────────────────────────────────────── */
+    :root {
+      --bg:           #0b1710;
+      --surface:      #111e13;
+      --surface-2:    #192b1b;
+      --surface-3:    #1f3522;
+      --border:       rgba(255,255,255,0.07);
+      --border-light: rgba(255,255,255,0.12);
+      --text:         #dde8de;
+      --text-muted:   #7a9a7c;
+      --text-dim:     #4a6b4c;
+      --accent:       #c9a84c;
+      --accent-dim:   rgba(201,168,76,0.15);
+      --green:        #4a8c5c;
+      --green-dim:    rgba(74,140,92,0.15);
+      --blue:         #4a6fa5;
+      --blue-dim:     rgba(74,111,165,0.15);
+      --teal:         #3a8c8c;
+      --teal-dim:     rgba(58,140,140,0.15);
+      --amber:        #c97a4a;
+      --amber-dim:    rgba(201,122,74,0.15);
+      --slate:        #5a7a9a;
+      --slate-dim:    rgba(90,122,154,0.15);
+      --danger:       #c95a3a;
+      --danger-dim:   rgba(201,90,58,0.12);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --radius-sm:    6px;
+      --radius-md:    12px;
+      --radius-lg:    18px;
+      --radius-xl:    24px;
+      --shadow:       0 4px 24px rgba(0,0,0,0.5);
+      --shadow-lg:    0 8px 48px rgba(0,0,0,0.6);
+      --nav-h:        64px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SVG noise filter (used in hero) ─────────────────────────── */
+    .svg-filters { position: absolute; width: 0; height: 0; }
+
+    /* ── Sticky Nav ──────────────────────────────────────────────── */
+    #main-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+    #main-nav.scrolled {
+      background: rgba(11,23,16,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-color: var(--border);
+    }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.25rem;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--surface-2); }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0.35rem 0.6rem;
+      border-radius: var(--radius-sm);
+    }
+    @media (max-width: 680px) {
+      .nav-toggle { display: flex; align-items: center; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: var(--nav-h);
+        left: 0; right: 0;
+        flex-direction: column;
+        background: rgba(11,23,16,0.97);
+        backdrop-filter: blur(14px);
+        padding: 1rem;
+        gap: 0.25rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 0.75rem 1rem; font-size: 1rem; }
+    }
+
+    /* ── Hero ────────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          #05100a 0%,
+          #0b1e10 25%,
+          #0f2a14 50%,
+          #122e17 65%,
+          #0d2010 80%,
+          #080f09 100%
+        );
+      filter: url(#noise);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 30%, rgba(74,140,92,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 60%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 80% 70%, rgba(74,111,165,0.06) 0%, transparent 60%);
+    }
+    /* Mountain silhouette */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, #050d07 0%, #080f09 100%);
+      clip-path: polygon(
+        0% 100%,
+        0% 78%,
+        4% 65%,
+        8% 72%,
+        12% 55%,
+        16% 68%,
+        20% 42%,
+        24% 58%,
+        27% 35%,
+        30% 50%,
+        33% 28%,
+        36% 38%,
+        40% 20%,
+        43% 32%,
+        46% 15%,
+        49% 28%,
+        52% 10%,
+        55% 22%,
+        58% 30%,
+        61% 18%,
+        64% 34%,
+        67% 22%,
+        70% 38%,
+        73% 28%,
+        76% 42%,
+        80% 32%,
+        84% 48%,
+        88% 38%,
+        92% 52%,
+        96% 44%,
+        100% 55%,
+        100% 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: 2rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+      margin-bottom: 1.25rem;
+    }
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--green);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(74,140,92,0.35);
+    }
+    .hero-cta:hover {
+      background: #5aa870;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(74,140,92,0.45);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── Stats Bar ───────────────────────────────────────────────── */
+    .stats-bar {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 640px) { .stats-bar { grid-template-columns: repeat(6, 1fr); } }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 0.75rem;
+      border-right: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .stat:last-child { border-right: none; }
+    .stat:nth-child(3) { border-right: none; }
+    @media (min-width: 640px) { .stat:nth-child(3) { border-right: 1px solid var(--border); } }
+    .stat:hover { background: var(--surface-2); }
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+      text-align: center;
+    }
+
+    /* ── Section scaffolding ─────────────────────────────────────── */
+    section { padding: 4rem 0; }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .section-lead {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-light), transparent);
+      margin: 0;
+    }
+
+    /* ── Animate on scroll ───────────────────────────────────────── */
+    .aos {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .aos.visible { opacity: 1; transform: none; }
+    .aos-delay-1 { transition-delay: 0.1s; }
+    .aos-delay-2 { transition-delay: 0.2s; }
+    .aos-delay-3 { transition-delay: 0.3s; }
+
+    /* ── Base card ───────────────────────────────────────────────── */
+    .base-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem;
+    }
+    .base-card-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .base-card-sub {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .base-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (min-width: 560px) { .base-info-grid { grid-template-columns: repeat(3, 1fr); } }
+    .base-info-item { display: flex; flex-direction: column; }
+    .base-info-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); }
+    .base-info-value { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+    .amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .amenity-chip {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Day Cards ───────────────────────────────────────────────── */
+    #itinerary { padding-top: 3rem; }
+    .days-container { display: flex; flex-direction: column; gap: 1rem; }
+
+    .day-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      border-top: 3px solid var(--day-accent, var(--green));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .day-card:hover { box-shadow: var(--shadow-lg); }
+
+    .day-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    .day-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 52px;
+    }
+    .day-emoji { font-size: 1.5rem; line-height: 1; }
+    .day-num {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-top: 0.2rem;
+      white-space: nowrap;
+    }
+    .day-meta { flex: 1; }
+    .day-meta h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .day-meta .day-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.1rem; }
+    .day-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+    .day-toggle:hover { background: var(--surface-2); color: var(--text); }
+
+    .day-body {
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .day-body-inner { padding: 0 1.5rem 1.5rem; }
+
+    /* Hike stats row */
+    .hike-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .hike-chip {
+      background: var(--green-dim);
+      border: 1px solid rgba(74,140,92,0.25);
+      color: #7ec99a;
+      border-radius: 50px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Alert banners */
+    .alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .alert--warning {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: #d4b46a;
+    }
+    .alert--danger {
+      background: var(--danger-dim);
+      border: 1px solid rgba(201,90,58,0.3);
+      color: #d4876a;
+    }
+    .alert--info {
+      background: var(--blue-dim);
+      border: 1px solid rgba(74,111,165,0.3);
+      color: #7a9ac5;
+    }
+
+    /* Timeline */
+    .timeline {
+      list-style: none;
+      border-left: 2px solid var(--border-light);
+      padding-left: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .timeline li {
+      position: relative;
+      padding: 0.4rem 0;
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -1.4rem;
+      top: 0.65rem;
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .tl-time {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.8rem;
+      font-variant-numeric: tabular-nums;
+      min-width: 3.2rem;
+      flex-shrink: 0;
+    }
+    .tl-text { font-size: 0.875rem; color: var(--text); }
+
+    /* Info chips row */
+    .day-info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .info-chip {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .info-chip.tip {
+      background: var(--accent-dim);
+      border-color: rgba(201,168,76,0.2);
+      color: #c4a060;
+    }
+    .info-chip.reservation {
+      background: var(--danger-dim);
+      border-color: rgba(201,90,58,0.25);
+      color: #d48070;
+    }
+
+    /* ── SPA Section ─────────────────────────────────────────────── */
+    #spa { background: var(--surface); }
+    .spa-grid {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .spa-grid { grid-template-columns: repeat(3, 1fr); } }
+    .spa-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .spa-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .spa-card.featured {
+      border-color: var(--green);
+      box-shadow: 0 0 0 1px var(--green), 0 8px 32px rgba(74,140,92,0.2);
+    }
+    .spa-badge {
+      position: absolute;
+      top: -0.6rem;
+      left: 1rem;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 50px;
+    }
+    .spa-stars {
+      color: #f5c518;
+      font-size: 0.9rem;
+      text-shadow: 0 0 6px rgba(245,197,24,0.4);
+      margin-bottom: 0.5rem;
+    }
+    .spa-rating-num { color: var(--accent); font-weight: 700; }
+    .spa-reviews { color: var(--text-dim); font-size: 0.8rem; }
+    .spa-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .spa-desc { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.5; }
+    .spa-meta { font-size: 0.78rem; color: var(--text-dim); margin-bottom: 1rem; }
+    .spa-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    .spa-link {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .spa-link:hover { color: var(--accent); }
+
+    /* ── Budget ──────────────────────────────────────────────────── */
+    .budget-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+    }
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .budget-table thead tr {
+      background: var(--surface-2);
+    }
+    .budget-table th {
+      padding: 0.85rem 1.25rem;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .budget-table td {
+      padding: 0.85rem 1.25rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+    .budget-table tbody tr:last-child td { border-bottom: none; }
+    .budget-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .budget-table tfoot tr { background: rgba(201,168,76,0.08); }
+    .budget-table tfoot td {
+      font-weight: 700;
+      color: var(--accent);
+      border-top: 1px solid rgba(201,168,76,0.2);
+      border-bottom: none;
+    }
+    .budget-note {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 0.75rem;
+    }
+
+    /* ── Packing List ────────────────────────────────────────────── */
+    #packing { background: var(--surface); }
+    .packing-grid {
+      display: grid;
+      gap: 0.6rem;
+    }
+    @media (min-width: 560px) { .packing-grid { grid-template-columns: repeat(2, 1fr); } }
+    .pack-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pack-item:hover { background: var(--surface-2); }
+    .pack-item input[type="checkbox"] { display: none; }
+    .checkmark {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border-light);
+      border-radius: 5px;
+      flex-shrink: 0;
+      position: relative;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pack-item input:checked ~ .checkmark {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .pack-item input:checked ~ .checkmark::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 1px;
+      width: 7px; height: 11px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(42deg);
+    }
+    .pack-item input:checked ~ .pack-text {
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .pack-text { font-size: 0.875rem; }
+
+    /* ── Contacts ────────────────────────────────────────────────── */
+    .contacts-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+    @media (min-width: 560px) { .contacts-grid { grid-template-columns: repeat(2, 1fr); } }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-card:hover { border-color: var(--border-light); background: var(--surface-2); }
+    .contact-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .contact-info { display: flex; flex-direction: column; gap: 0.1rem; }
+    .contact-name { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .contact-phone { font-size: 0.8rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .contact-web { font-size: 0.75rem; color: var(--text-dim); }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .footer-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .footer-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .footer-tagline { font-size: 1.25rem; margin-top: 1.5rem; }
+
+    /* ── Utility ─────────────────────────────────────────────────── */
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+
+<!-- Noise filter for hero texture -->
+<svg class="svg-filters" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noiseOut"/>
+      <feColorMatrix type="saturate" values="0" in="noiseOut" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blend"/>
+      <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ── Nav ──────────────────────────────────────────────────────── -->
+<nav id="main-nav">
+  <div class="nav-brand">Bieszczady '25</div>
+  <ul class="nav-links">
+    <li><a href="#base">Bazė</a></li>
+    <li><a href="#itinerary">Dienotvarkė</a></li>
+    <li><a href="#spa">SPA</a></li>
+    <li><a href="#budget">Biudžetas</a></li>
+    <li><a href="#packing">Ką paimti</a></li>
+    <li><a href="#contacts">Kontaktai</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Meniu">☰</button>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Kelionės planas · Liepa 4–11, 2025 · Lietuva → Lenkija 🇵🇱</p>
+    <h1 class="hero-title">Bieszczady</h1>
+    <p class="hero-subtitle">8 dienų aktyvių atostogų planas · 8 žmonių kompanija<br>Žygiai per połoninas · Solinos ežeras · Du SPA vakarai</p>
+    <a href="#itinerary" class="hero-cta">Žiūrėti planą ↓</a>
+  </div>
+  <div class="hero-scroll">↓ slinkite</div>
+</section>
+
+<!-- ── Stats Bar ─────────────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-value">8</span><span class="stat-label">Dienos</span></div>
+  <div class="stat"><span class="stat-value">3</span><span class="stat-label">Kalnų žygiai</span></div>
+  <div class="stat"><span class="stat-value">8</span><span class="stat-label">Žmonės</span></div>
+  <div class="stat"><span class="stat-value">2</span><span class="stat-label">SPA vizitai</span></div>
+  <div class="stat"><span class="stat-value">~700</span><span class="stat-label">km į vieną pusę</span></div>
+  <div class="stat"><span class="stat-value">1346m</span><span class="stat-label">Tarnica viršūnė</span></div>
+</div>
+
+<!-- ── Base ─────────────────────────────────────────────────────── -->
+<section id="base">
+  <div class="container">
+    <h2 class="section-title aos">Mūsų bazė</h2>
+    <p class="section-lead aos">Savaitės namai Bieszczady kalnų papėdėje.</p>
+    <div class="base-card aos">
+      <div class="base-card-title">Chata Sekata</div>
+      <div class="base-card-sub">Mediniai apartamentai · strateginė vieta tarp Solinos ežero, Tarnicos žygio ir Sanoko</div>
+      <div class="base-info-grid">
+        <div class="base-info-item"><span class="base-info-label">Adresas</span><span class="base-info-value">Kazimierza Wielkiego</span></div>
+        <div class="base-info-item"><span class="base-info-label">Miestas</span><span class="base-info-value">38-606 Baligród</span></div>
+        <div class="base-info-item"><span class="base-info-label">Šalis</span><span class="base-info-value">Lenkija 🇵🇱</span></div>
+        <div class="base-info-item"><span class="base-info-label">Atvykimas</span><span class="base-info-value">Liepos 4 d., ~16:30</span></div>
+        <div class="base-info-item"><span class="base-info-label">Išvykimas</span><span class="base-info-value">Liepos 11 d., ~09:00</span></div>
+        <div class="base-info-item"><span class="base-info-label">Svečių</span><span class="base-info-value">8 žmonės 👥</span></div>
+      </div>
+      <div class="amenities">
+        <span class="amenity-chip">👥 Vietos kompanijai</span>
+        <span class="amenity-chip">🍳 Pilna virtuvė</span>
+        <span class="amenity-chip">🔥 Laužavietė kieme</span>
+        <span class="amenity-chip">🅿️ Nemokamas parkingas</span>
+        <span class="amenity-chip">📶 Wi-Fi</span>
+        <span class="amenity-chip">🏔️ Kalnų vaizdas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Itinerary ────────────────────────────────────────────────── -->
+<section id="itinerary">
+  <div class="container">
+    <h2 class="section-title aos">Dienotvarkė</h2>
+    <p class="section-lead aos">Diena po dienos — nuo Vilniaus iki Bieszczady ir atgal.</p>
+    <div class="days-container">
+
+      <!-- Day 1 -->
+      <article class="day-card aos" style="--day-accent: var(--slate)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🚗</span><span class="day-num">1 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 4 · Penktadienis</h3>
+            <p class="day-subtitle">Kelionė iš Lietuvos</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <ul class="timeline">
+              <li><span class="tl-time">06:00</span><span class="tl-text">Išvykimas iš Lietuvos</span></li>
+              <li><span class="tl-time">09:00</span><span class="tl-text">Pusryčiai Suvalkuose</span></li>
+              <li><span class="tl-time">12:30</span><span class="tl-text">Pietūs Varšuvoje arba Rzesvówe</span></li>
+              <li><span class="tl-time">16:30</span><span class="tl-text">Atvykimas į Baligród</span></li>
+              <li><span class="tl-time">17:30</span><span class="tl-text">Apsipirkimas Leske — atsargos savaitei (Biedronka)</span></li>
+              <li><span class="tl-time">19:00</span><span class="tl-text">Vakarienė apartamentuose, laužas 🔥</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip">📏 ~700 km</span>
+              <span class="info-chip">⏱ 8–9 val.</span>
+              <span class="info-chip">🕕 Pradžia 06:00</span>
+              <span class="info-chip tip">💡 Apsipirkti Leske — vietinės parduotuvės brangios</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 2 -->
+      <article class="day-card aos" style="--day-accent: var(--green)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🥾</span><span class="day-num">2 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 5 · Šeštadienis</h3>
+            <p class="day-subtitle">Połonina Caryńska — 1297 m</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <div class="hike-stats">
+              <span class="hike-chip">🗺 ~14 km</span>
+              <span class="hike-chip">↑ ~600 m</span>
+              <span class="hike-chip">⏱ 4–5 val.</span>
+              <span class="hike-chip">📍 Ustrzyki Górne</span>
+            </div>
+            <ul class="timeline">
+              <li><span class="tl-time">08:30</span><span class="tl-text">Pusryčiai apartamentuose</span></li>
+              <li><span class="tl-time">09:30</span><span class="tl-text">Išvažiavimas į Ustrzyki Górne (~50 min.)</span></li>
+              <li><span class="tl-time">10:30</span><span class="tl-text">Pradžia — raudonas takas į Połonina Caryńska</span></li>
+              <li><span class="tl-time">12:30</span><span class="tl-text">Viršūnė 1297 m — fotos, užkandis ☀️</span></li>
+              <li><span class="tl-time">14:30</span><span class="tl-text">Nusileidimas pievų ridge'u</span></li>
+              <li><span class="tl-time">16:00</span><span class="tl-text">Grįžimas prie automobilių</span></li>
+              <li><span class="tl-time">17:30</span><span class="tl-text">Baligród, vakarienė</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip tip">🐴 Galima pamatyti laukinius huculus arklius ir danielius!</span>
+              <span class="info-chip">🚌 Rekomenduojama: traversas + mikroautobusas atgal</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 3 -->
+      <article class="day-card aos" style="--day-accent: var(--green)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🥾</span><span class="day-num">3 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 6 · Sekmadienis</h3>
+            <p class="day-subtitle">Tarnica — 1346 m · Aukščiausias Lenkijos Bieszczady taškas</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <div class="alert alert--warning">⚠️ <strong>SVARBU:</strong> Išvykstame 07:00, ne 09:00 — Wołosate stovėjimo aikštelė užpildoma iki 09:00. Vėliau atvykus tenka eiti +3 km nuo pakelės.</div>
+            <div class="hike-stats">
+              <span class="hike-chip">🗺 ~12 km</span>
+              <span class="hike-chip">↑ ~650 m</span>
+              <span class="hike-chip">⏱ 4–5 val.</span>
+              <span class="hike-chip">📍 Wołosate</span>
+            </div>
+            <ul class="timeline">
+              <li><span class="tl-time">06:30</span><span class="tl-text">Ankstyvi pusryčiai</span></li>
+              <li><span class="tl-time">07:00</span><span class="tl-text">Išvažiavimas į Wołosate ⚠️</span></li>
+              <li><span class="tl-time">08:15</span><span class="tl-text">Pradžia — mėlynas takas iš Wołosate</span></li>
+              <li><span class="tl-time">10:15</span><span class="tl-text">Tarnica viršūnė 1346 m — fotos, kava, pietūs 🏔️</span></li>
+              <li><span class="tl-time">12:30</span><span class="tl-text">Nusileidimas</span></li>
+              <li><span class="tl-time">15:00</span><span class="tl-text">Sustojimas Leske — XIII a. sinagoga, senamiestis</span></li>
+              <li><span class="tl-time">18:00</span><span class="tl-text">Grilis apartamentuose 🔥</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip tip">💡 Rekomenduojama: Didysis ratas per Halicz ir Rozsypaniec (~20 km)</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 4 -->
+      <article class="day-card aos" style="--day-accent: var(--blue)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🏖️</span><span class="day-num">4 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 7 · Pirmadienis</h3>
+            <p class="day-subtitle">Solinos paplūdimys + Hotel Karino SPA</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <div class="alert alert--danger">📞 <strong>REZERVACIJA BŪTINA:</strong> Hotel Karino SPA · +48 666 560 010 — rezervuokite 8 žmonių vizitą iš anksto!</div>
+            <ul class="timeline">
+              <li><span class="tl-time">10:00</span><span class="tl-text">Plaža na Cyplu Połańczyk — paplūdimys, maudymasis 🌊</span></li>
+              <li><span class="tl-time">12:30</span><span class="tl-text">Pietūs prie ežero</span></li>
+              <li><span class="tl-time">14:00</span><span class="tl-text">PKL Solina lynų keltuvas — panoraminiai vaizdai</span></li>
+              <li><span class="tl-time">15:00</span><span class="tl-text">Pasiplaukiojimas laivu (90 min.) ⛵</span></li>
+              <li><span class="tl-time">17:00</span><span class="tl-text">🧖 Hotel Karino SPA — baseinas, sauna, džiakuzi</span></li>
+              <li><span class="tl-time">20:30</span><span class="tl-text">Grįžimas į Baligród</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip">📏 ~15 km iki ežero</span>
+              <span class="info-chip">🌡 22–24°C vanduo</span>
+              <span class="info-chip">⭐ Karino SPA 4.3 (918 atsiliepimų)</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 5 -->
+      <article class="day-card aos" style="--day-accent: var(--green)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🥾</span><span class="day-num">5 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 8 · Antradienis</h3>
+            <p class="day-subtitle">Połonina Wetlińska + Smerek — du viršūnės vienoje dienoje</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <div class="alert alert--info">🐺 Šiame rajone gyvena vilkai, lūšys, lokiai. Tikimybė susidurti maža — eikite kartu grupėje.</div>
+            <div class="hike-stats">
+              <span class="hike-chip">🗺 ~16 km</span>
+              <span class="hike-chip">↑ ~700 m</span>
+              <span class="hike-chip">⏱ 5–6 val.</span>
+              <span class="hike-chip">📍 Wetlina</span>
+            </div>
+            <ul class="timeline">
+              <li><span class="tl-time">08:00</span><span class="tl-text">Sotūs pusryčiai — diena ilga</span></li>
+              <li><span class="tl-time">09:00</span><span class="tl-text">Išvažiavimas į Wetliną (~50 min.)</span></li>
+              <li><span class="tl-time">10:00</span><span class="tl-text">Pradžia — geltonas takas iš Przełęcz Wyżna</span></li>
+              <li><span class="tl-time">12:00</span><span class="tl-text">Chatka Puchatka — kavos pertrauka prieglobstyje ☕</span></li>
+              <li><span class="tl-time">14:00</span><span class="tl-text">Smerek viršūnė 1222 m 🏔️</span></li>
+              <li><span class="tl-time">16:30</span><span class="tl-text">Nusileidimas į Wetliną</span></li>
+              <li><span class="tl-time">18:30</span><span class="tl-text">Vakarienė restorane Baligróde</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip tip">💡 Rekomenduojama: klasikinis traversas Przełęcz Wyżna → Smerek → Kalnica</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 6 -->
+      <article class="day-card aos" style="--day-accent: var(--teal)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🚲</span><span class="day-num">6 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 9 · Trečiadienis</h3>
+            <p class="day-subtitle">Dviračiai prie Solinos + Beksińskio muziejus Sanoke</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <div class="hike-stats" style="--green-dim: var(--teal-dim)">
+              <span class="hike-chip" style="background:var(--teal-dim);border-color:rgba(58,140,140,0.25);color:#7ecece">🚵 ~35 km</span>
+              <span class="hike-chip" style="background:var(--teal-dim);border-color:rgba(58,140,140,0.25);color:#7ecece">↑ ~450 m</span>
+              <span class="hike-chip" style="background:var(--teal-dim);border-color:rgba(58,140,140,0.25);color:#7ecece">📍 Polańczyk</span>
+            </div>
+            <ul class="timeline">
+              <li><span class="tl-time">08:30</span><span class="tl-text">Pusryčiai apartamentuose</span></li>
+              <li><span class="tl-time">09:30</span><span class="tl-text">Išvažiavimas į Polańczyk (~30 min.)</span></li>
+              <li><span class="tl-time">10:00</span><span class="tl-text">Dviračių nuoma (~50 PLN/dviračiui)</span></li>
+              <li><span class="tl-time">10:30</span><span class="tl-text">🚵 Loop'as: Polańczyk → Myczków → Solinos užtvanka → atgal</span></li>
+              <li><span class="tl-time">13:30</span><span class="tl-text">Pietūs prie ežero</span></li>
+              <li><span class="tl-time">14:45</span><span class="tl-text">Pervažiavimas į Sanoką (~50 min.)</span></li>
+              <li><span class="tl-time">15:45</span><span class="tl-text">🖼️ Muzeum Historyczne — Zdzisław Beksiński galerija (~2 val.)</span></li>
+              <li><span class="tl-time">18:00</span><span class="tl-text">Vakarienė Sanoke — Karczma Jadło Karpackie 🍽️</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip">🎨 Didžiausia Beksińskio kolekcija pasaulyje</span>
+              <span class="info-chip">🎟 ~25 PLN/žm. bilietai</span>
+              <span class="info-chip tip">💡 Muziejus iki 17–18:00 — atvykti iki 16:00!</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 7 -->
+      <article class="day-card aos" style="--day-accent: var(--amber)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🧖</span><span class="day-num">7 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 10 · Ketvirtadienis</h3>
+            <p class="day-subtitle">Visa diena Dwór Leszczowate SPA ⭐ 4.9</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <div class="alert alert--danger">📞 <strong>REZERVACIJA BŪTINA:</strong> Dwór Leszczowate · +48 13 497 39 39 — grupiniams masažams vietos greitai užsibaigia!</div>
+            <ul class="timeline">
+              <li><span class="tl-time">09:30</span><span class="tl-text">Išvažiavimas į Dwór Leszczowate (~35 min.)</span></li>
+              <li><span class="tl-time">10:00</span><span class="tl-text">🧖 Baseinas, sauna, garinė pirtis</span></li>
+              <li><span class="tl-time">13:00</span><span class="tl-text">Pietūs viešbučio restorane 🍽️</span></li>
+              <li><span class="tl-time">14:00</span><span class="tl-text">Masažai (rezervuoti iš anksto)</span></li>
+              <li><span class="tl-time">16:30</span><span class="tl-text">Grįžimas į Baligród</span></li>
+              <li><span class="tl-time">18:00</span><span class="tl-text">🔥 Atsisveikinimo vakaras — laužas, grilis</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip">⭐ 4.9 / 5 (220 atsiliepimų)</span>
+              <span class="info-chip">📏 ~35 min nuo Baligródo</span>
+              <span class="info-chip tip">🏆 Geriausiai įvertintas SPA regione</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 8 -->
+      <article class="day-card aos" style="--day-accent: var(--slate)">
+        <div class="day-card-header">
+          <div class="day-badge"><span class="day-emoji">🚗</span><span class="day-num">8 diena</span></div>
+          <div class="day-meta">
+            <h3>Liepos 11 · Penktadienis</h3>
+            <p class="day-subtitle">Grįžimas į Lietuvą 🇱🇹</p>
+          </div>
+          <button class="day-toggle" aria-expanded="true">▲</button>
+        </div>
+        <div class="day-body">
+          <div class="day-body-inner">
+            <ul class="timeline">
+              <li><span class="tl-time">07:30</span><span class="tl-text">Pusryčiai, apartamentų tvarkymas</span></li>
+              <li><span class="tl-time">09:00</span><span class="tl-text">Išvažiavimas</span></li>
+              <li><span class="tl-time">12:00</span><span class="tl-text">Pietūs Varšuvoje arba pakeliui</span></li>
+              <li><span class="tl-time">17:00</span><span class="tl-text">Atvykimas į Lietuvą 🇱🇹</span></li>
+            </ul>
+            <div class="day-info-row">
+              <span class="info-chip">📏 ~700 km</span>
+              <span class="info-chip">🕕 Pradžia 09:00</span>
+              <span class="info-chip">🏠 Namuose ~17:00–18:00</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── SPA ───────────────────────────────────────────────────────── -->
+<section id="spa">
+  <div class="container">
+    <h2 class="section-title aos">SPA ir poilsis</h2>
+    <p class="section-lead aos">Du SPA vizitai — balansas po aktyvių žygių dienų.</p>
+    <div class="spa-grid">
+
+      <div class="spa-card featured aos">
+        <div class="spa-badge">Rekomenduojama</div>
+        <div class="spa-stars">★★★★★ <span class="spa-rating-num">4.9</span> <span class="spa-reviews">(220 atsiliepimų)</span></div>
+        <div class="spa-name">Dwór Leszczowate</div>
+        <div class="spa-desc">Geriausias regione. Romantiškas dvaras miškuose. Pilnas SPA kompleksas — baseinas, sauna, garinė pirtis, masažai. 7 dieną — visa diena čia.</div>
+        <div class="spa-meta">~35 min nuo Baligródo · 7 diena (Liepos 10)</div>
+        <div class="spa-links">
+          <a class="spa-link" href="tel:+48134973939">📞 +48 13 497 39 39</a>
+          <a class="spa-link" href="https://dworleszczowate.pl" target="_blank" rel="noopener">🌐 dworleszczowate.pl ↗</a>
+        </div>
+      </div>
+
+      <div class="spa-card aos aos-delay-1">
+        <div class="spa-stars">★★★★ <span class="spa-rating-num">4.3</span> <span class="spa-reviews">(918 atsiliepimų)</span></div>
+        <div class="spa-name">Hotel Karino SPA</div>
+        <div class="spa-desc">Šalia Solinos ežero. Modernus viešbutis — šildomas baseinas, sauna, džiakuzi. 4 dieną — po paplūdimio ir laivelių.</div>
+        <div class="spa-meta">Polańczyk, šalia Solinos · 4 diena (Liepos 7)</div>
+        <div class="spa-links">
+          <a class="spa-link" href="tel:+48666560010">📞 +48 666 560 010</a>
+          <a class="spa-link" href="https://karinospa.pl" target="_blank" rel="noopener">🌐 karinospa.pl ↗</a>
+        </div>
+      </div>
+
+      <div class="spa-card aos aos-delay-2">
+        <div class="spa-stars">★★★★ <span class="spa-rating-num">4.4</span> <span class="spa-reviews">(1338 atsiliepimų)</span></div>
+        <div class="spa-name">Caryńska Resort</div>
+        <div class="spa-desc">Kalnų kurortinis stilius. Saunariumo kompleksas, laužavietė, tenisas. Alternatyva, jei kiti užimti.</div>
+        <div class="spa-meta">Bieszczady regionas</div>
+        <div class="spa-links">
+          <a class="spa-link" href="https://carynska.bieszczady.pl" target="_blank" rel="noopener">🌐 carynska.bieszczady.pl ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Budget ───────────────────────────────────────────────────── -->
+<section id="budget">
+  <div class="container">
+    <h2 class="section-title aos">Biudžetas</h2>
+    <p class="section-lead aos">Apytikslis vienam asmeniui · be apartamentų nuomos · 8 žmonių grupė</p>
+    <div class="budget-table-wrap aos">
+      <table class="budget-table">
+        <thead>
+          <tr><th>Išlaidų kategorija</th><th>Min</th><th>Max</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>⛽ Kuras (1400 km į abi puses / 8 žm.)</td><td>70 €</td><td>70 €</td></tr>
+          <tr><td>🍽️ Maistas (~7 dienų)</td><td>120 €</td><td>150 €</td></tr>
+          <tr><td>🎯 Veiklos (Solina, dviračiai, lynų keltuvas, parkas)</td><td>50 €</td><td>70 €</td></tr>
+          <tr><td>🍷 Vakarienės restoranuose (2–3 kartai)</td><td>40 €</td><td>60 €</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>💰 Viso vienam asmeniui</td><td>280 €</td><td>350 €</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="budget-note aos">* Kainos paskaičiuotos dalinant grupės išlaidas po lygiai. Apartamentų kaina neįskaičiuota.</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Packing ──────────────────────────────────────────────────── -->
+<section id="packing">
+  <div class="container">
+    <h2 class="section-title aos">Ką paimti</h2>
+    <p class="section-lead aos">Atžymėkite — sąrašas išsaugomas naršyklėje.</p>
+    <div class="packing-grid">
+      <label class="pack-item aos"><input type="checkbox" data-pack="0"><span class="checkmark"></span><span class="pack-text">🥾 Tinkami batai žygiams (ne sportbačiai)</span></label>
+      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="1"><span class="checkmark"></span><span class="pack-text">🧥 Lietpaltis arba membraninė striukė</span></label>
+      <label class="pack-item aos"><input type="checkbox" data-pack="2"><span class="checkmark"></span><span class="pack-text">☀️ Saulės kremas SPF 50+</span></label>
+      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="3"><span class="checkmark"></span><span class="pack-text">🦯 Žygio lazdelės</span></label>
+      <label class="pack-item aos"><input type="checkbox" data-pack="4"><span class="checkmark"></span><span class="pack-text">🩹 Pirmos pagalbos vaistinėlė</span></label>
+      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="5"><span class="checkmark"></span><span class="pack-text">💵 PLN grynaisiais — daug kavinių nepriima kortelių</span></label>
+      <label class="pack-item aos"><input type="checkbox" data-pack="6"><span class="checkmark"></span><span class="pack-text">🗺️ Komoot arba Mapy.cz oflaininiai žemėlapiai</span></label>
+      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="7"><span class="checkmark"></span><span class="pack-text">🩱 Maudymosi rūbai (Solina + SPA)</span></label>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── Contacts ─────────────────────────────────────────────────── -->
+<section id="contacts">
+  <div class="container">
+    <h2 class="section-title aos">Kontaktai ir nuorodos</h2>
+    <p class="section-lead aos">Visi svarbūs kontaktai vienoje vietoje.</p>
+    <div class="contacts-grid">
+      <a class="contact-card aos" href="tel:+48134686335">
+        <span class="contact-icon">🚂</span>
+        <div class="contact-info">
+          <span class="contact-name">Bieszczady Railway</span>
+          <span class="contact-phone">+48 13 468 63 35</span>
+          <span class="contact-web">kolejka.bieszczady.pl</span>
+        </div>
+      </a>
+      <a class="contact-card aos aos-delay-1" href="tel:+48607829214">
+        <span class="contact-icon">⛵</span>
+        <div class="contact-info">
+          <span class="contact-name">Komandor — Solinos laivai</span>
+          <span class="contact-phone">+48 607 829 214</span>
+          <span class="contact-web">rejsysolina.pl</span>
+        </div>
+      </a>
+      <a class="contact-card aos" href="tel:+48692050040">
+        <span class="contact-icon">🚵</span>
+        <div class="contact-info">
+          <span class="contact-name">Bike Bieszczady — dviračių nuoma</span>
+          <span class="contact-phone">+48 692 050 040</span>
+          <span class="contact-web">bike-bieszczady.pl</span>
+        </div>
+      </a>
+      <a class="contact-card aos aos-delay-1" href="tel:+48182020300">
+        <span class="contact-icon">🚡</span>
+        <div class="contact-info">
+          <span class="contact-name">PKL Solina — lynų keltuvas</span>
+          <span class="contact-phone">+48 18 202 03 00</span>
+          <span class="contact-web">pkl.pl/solina</span>
+        </div>
+      </a>
+      <a class="contact-card aos" href="tel:+48666560010">
+        <span class="contact-icon">🧖</span>
+        <div class="contact-info">
+          <span class="contact-name">Hotel Karino SPA</span>
+          <span class="contact-phone">+48 666 560 010</span>
+          <span class="contact-web">karinospa.pl</span>
+        </div>
+      </a>
+      <a class="contact-card aos aos-delay-1" href="tel:+48134973939">
+        <span class="contact-icon">🏡</span>
+        <div class="contact-info">
+          <span class="contact-name">Dwór Leszczowate SPA</span>
+          <span class="contact-phone">+48 13 497 39 39</span>
+          <span class="contact-web">dworleszczowate.pl</span>
+        </div>
+      </a>
+      <a class="contact-card aos" href="tel:+48134630609">
+        <span class="contact-icon">🖼️</span>
+        <div class="contact-info">
+          <span class="contact-name">Beksiński muziejus Sanoke</span>
+          <span class="contact-phone">+48 13 463 06 09</span>
+          <span class="contact-web">muzeum.sanok.pl</span>
+        </div>
+      </a>
+      <a class="contact-card aos aos-delay-1" href="tel:+48134630609">
+        <span class="contact-icon">🌲</span>
+        <div class="contact-info">
+          <span class="contact-name">BdPN nacionalinis parkas</span>
+          <span class="contact-phone">+48 13 463 06 09</span>
+          <span class="contact-web">bdpn.pl</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-title">Bieszczady 2025</div>
+  <p class="footer-sub">Liepos 4–11 · 8 žmonės · Chata Sekata, Baligród, Lenkija</p>
+  <p class="footer-sub">Kazimierza Wielkiego, 38-606 Baligród 🇵🇱</p>
+  <p class="footer-tagline">Gero kelio! 🏔️</p>
+</footer>
+
+<script>
+  /* ── Nav scroll ──────────────────────────────────────────────── */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ── Mobile nav toggle ───────────────────────────────────────── */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+
+  /* ── Collapsible day cards ───────────────────────────────────── */
+  document.querySelectorAll('.day-body').forEach(body => {
+    body.style.maxHeight = body.scrollHeight + 'px';
+  });
+
+  document.querySelectorAll('.day-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const body = btn.closest('.day-card').querySelector('.day-body');
+      const expanded = btn.getAttribute('aria-expanded') !== 'false';
+      if (expanded) {
+        body.style.maxHeight = '0px';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = '▼';
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = '▲';
+      }
+    });
+  });
+
+  /* ── Packing list localStorage ───────────────────────────────── */
+  const PACK_KEY = 'bieszczady-packing-2025';
+  const saved = JSON.parse(localStorage.getItem(PACK_KEY) || '{}');
+  document.querySelectorAll('[data-pack]').forEach(cb => {
+    const i = cb.dataset.pack;
+    if (saved[i]) cb.checked = true;
+    cb.addEventListener('change', () => {
+      saved[i] = cb.checked;
+      localStorage.setItem(PACK_KEY, JSON.stringify(saved));
+    });
+  });
+
+  /* ── IntersectionObserver scroll animations ──────────────────── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.aos').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
