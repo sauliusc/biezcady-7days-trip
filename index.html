@@ -936,6 +936,7 @@
     .mt-1 { margin-top: 0.5rem; }
     .mt-2 { margin-top: 1rem; }
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
 
@@ -962,6 +963,7 @@
     <li><a href="#budget">Biudžetas</a></li>
     <li><a href="#packing">Ką paimti</a></li>
     <li><a href="#contacts">Kontaktai</a></li>
+    <li><a href="#map">Žemėlapis</a></li>
   </ul>
   <button class="nav-toggle" aria-label="Meniu">☰</button>
 </nav>
@@ -1935,6 +1937,24 @@
   </div>
 </section>
 
+<!-- ── Žemėlapis ─────────────────────────────────────────────────── -->
+<section id="map" style="padding: 4rem 0;">
+  <div class="container">
+    <h2 class="section-title">Kelionės žemėlapis</h2>
+    <p style="color:var(--text-muted);text-align:center;margin-bottom:1.5rem;font-size:0.9rem;">Visi kelionės objektai · spustelėk žymeklį daugiau informacijos</p>
+    <div id="trip-map" style="height:520px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-light);"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:1rem;justify-content:center;font-size:0.78rem;color:var(--text-muted);">
+      <span>🏠 Bazė</span>
+      <span style="color:#5db060">🥾 Žygiai</span>
+      <span style="color:#4a8ccc">🏖️ Ežeras / SPA</span>
+      <span style="color:#c9a84c">🧖 SPA</span>
+      <span style="color:#3a8c8c">🚂 Geležinkelis</span>
+      <span style="color:#9c6fc9">🖼️ Kultūra</span>
+    </div>
+  </div>
+</section>
+
+
 <!-- ── Footer ───────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-title">Bieszczady 2026</div>
@@ -2013,5 +2033,69 @@
 
   document.querySelectorAll('.aos').forEach(el => observer.observe(el));
 </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLEo=" crossorigin=""></script>
+
+  <script>
+  (function() {
+    var map = L.map('trip-map', { zoomControl: true }).setView([49.25, 22.42], 10);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 17
+    }).addTo(map);
+
+    function icon(emoji, color) {
+      return L.divIcon({
+        html: '<div style="background:' + color + ';width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;border:2px solid rgba(255,255,255,0.3);box-shadow:0 2px 8px rgba(0,0,0,0.5)">' + emoji + '</div>',
+        className: '', iconSize: [32,32], iconAnchor: [16,16], popupAnchor: [0,-16]
+      });
+    }
+
+    var points = [
+      // Bazė
+      { ll:[49.3389,22.2919], emoji:'🏠', color:'#c9a84c', title:'Chata Sekata — Bazė', body:'<b>Baligród</b><br>Nakvynė visą savaitę<br><a href="https://maps.google.com/?q=49.3389,22.2919" target="_blank" style="color:#c9a84c">Google Maps ↗</a>' },
+
+      // Diena 2 — Caryńska
+      { ll:[49.1025,22.5236], emoji:'🅿️', color:'#4a6b4c', title:'Parkavimas — Ustrzyki Górne', body:'<b>2 Diena · Caryńska</b><br>Pradinis taškas žygiui<br><small>Wczasowa g.</small>' },
+      { ll:[49.0875,22.5417], emoji:'⛰️', color:'#5db060', title:'Połonina Caryńska — 1297m', body:'<b>2 Diena · Sekmadienis</b><br>🥾 Žygis · 18 km · +640m<br>Panoraminis vaizdas į Ukrainą' },
+      { ll:[49.0890,22.5580], emoji:'⛰️', color:'#5db060', title:'Wielka Rawka — 1304m', body:'<b>2 Diena · Variantas A</b><br>Ridge walk su Caryńska<br>Aukščiausias ridge taškas' },
+
+      // Diena 3 — Tarnica
+      { ll:[49.0439,22.5758], emoji:'🅿️', color:'#4a6b4c', title:'Parkavimas — Wołosate', body:'<b>3 Diena · Tarnica</b><br>⚠️ Išvažiavimas 07:00!<br><a href="https://maps.google.com/?q=49.0439,22.5758" target="_blank" style="color:#c9a84c">Google Maps ↗</a>' },
+      { ll:[49.0583,22.5694], emoji:'🏔️', color:'#3dba3d', title:'Tarnica — 1346m', body:'<b>3 Diena · Pirmadienis</b><br>🥾 Aukščiausias Bieszczady taškas<br>14 km · +700m · 5h' },
+      { ll:[49.0536,22.5972], emoji:'⛰️', color:'#5db060', title:'Halicz — 1333m', body:'<b>3 Diena · Variantas A</b><br>Panorama į Ukrainą<br>GSB raudonas takas' },
+      { ll:[49.0590,22.6122], emoji:'⛰️', color:'#5db060', title:'Rozsypaniec — 1282m', body:'<b>3 Diena · Variantas A</b><br>Ridge tęsinys po Haliczas' },
+
+      // Diena 4 — Solina
+      { ll:[49.3742,22.4553], emoji:'🏖️', color:'#4a6fa5', title:'Solinos ežeras', body:'<b>4 Diena · Antradienis</b><br>🏖️ Paplūdimys, laivas<br>Didžiausias Lenkijos rezervuaras' },
+      { ll:[49.3639,22.4461], emoji:'🧖', color:'#c9a84c', title:'Hotel Karino SPA', body:'<b>4 Diena · Antradienis</b><br>🧖 Baseinas, sauna, džiakuzi<br>📞 +48 666 560 010<br>⭐ 4.3/5 (918 atsiliepimų)' },
+
+      // Diena 5 — Wetlińska
+      { ll:[49.1194,22.4961], emoji:'🅿️', color:'#4a6b4c', title:'Parkavimas — Przełęcz Wyżna', body:'<b>5 Diena · Wetlińska</b><br>Pradinis taškas žygiui' },
+      { ll:[49.1347,22.4833], emoji:'🏚️', color:'#5db060', title:'Chatka Puchatka — 1228m', body:'<b>5 Diena · Trečiadienis</b><br>Kalnų prieglauda · karšti gėrimai<br>Orientyras Wetlińska ridge'e' },
+      { ll:[49.1300,22.4750], emoji:'⛰️', color:'#5db060', title:'Połonina Wetlińska', body:'<b>5 Diena · Trečiadienis</b><br>🥾 Ilgiausia connected ridge<br>🐺 Vilkų teritorija — triukšmaukite!' },
+      { ll:[49.1525,22.4458], emoji:'⛰️', color:'#5db060', title:'Smerek — 1222m', body:'<b>5 Diena · Trečiadienis</b><br>🥾 Antra dienos viršūnė<br>Puiki panorama į pietryčius' },
+      { ll:[49.1481,22.4428], emoji:'🅿️', color:'#4a6b4c', title:'Kalnica / Wetlina', body:'<b>5 Diena · Pabaiga</b><br>Variantas A finišas<br>Autobusiuku atgal' },
+
+      // Diena 6 — Kolejka + Sanok
+      { ll:[49.2436,22.3369], emoji:'🚂', color:'#3a8c8c', title:'Bieszczadzka Kolejka — Majdan stotis', body:'<b>6 Diena · Ketvirtadienis</b><br>🚂 Siaurasis geležinkelis<br>Majdan → Balnica ir atgal (~2h)' },
+      { ll:[49.1200,22.2733], emoji:'🏁', color:'#3a8c8c', title:'Balnica — Slovakijos pasienis', body:'<b>6 Diena</b><br>Kolejka galinis taškas<br>Lenkija–Slovakija pasienio stotis' },
+      { ll:[49.5583,22.2036], emoji:'🖼️', color:'#9c6fc9', title:'Sanok — Beksińskio muziejus', body:'<b>6 Diena · Ketvirtadienis</b><br>🖼️ Muzeum Historyczne<br>Zdzisław Beksiński galerija<br>~2 val. vizitas' },
+
+      // Diena 7 — SPA
+      { ll:[49.0850,22.5600], emoji:'🧖', color:'#c97a4a', title:'Caryńska Resort SPA', body:'<b>7 Diena · Penktadienis</b><br>🧖 Pusdienio SPA<br>📞 +48 13 469 10 99' },
+      { ll:[49.4319,22.5847], emoji:'🏘️', color:'#5a7a9a', title:'Ustrzyki Dolne', body:'<b>7 Diena · Penktadienis</b><br>Popietinis apsipirkimas<br>Turgus, suvenyrų parduotuvės' },
+
+      // Kultūra
+      { ll:[49.4706,22.3347], emoji:'🕍', color:'#9c6fc9', title:'Lesko — XIII a. sinagoga', body:'<b>Dienos 3 sustojimas</b><br>🕍 XIII a. sinagoga<br>Senamiestis, Renesanso pilies liekanos' },
+    ];
+
+    points.forEach(function(p) {
+      L.marker(p.ll, { icon: icon(p.emoji, p.color) })
+       .bindPopup('<div style="font-family:Inter,sans-serif;min-width:160px"><b style="color:#c9a84c">' + p.title + '</b><br><span style="font-size:0.85em;color:#888">' + p.body + '</span></div>', { maxWidth: 220 })
+       .addTo(map);
+    });
+  })();
+  </script>
+
 </body>
 </html>
