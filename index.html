@@ -543,6 +543,36 @@
     }
     .tl-text { font-size: 0.875rem; color: var(--text); }
 
+
+    /* Photo strip */
+    .photo-strip {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-light) transparent;
+      padding-bottom: 0.4rem;
+      margin: 1rem 0 0.5rem;
+    }
+    .photo-strip::-webkit-scrollbar { height: 4px; }
+    .photo-strip::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 2px; }
+    .photo-item { flex-shrink: 0; }
+    .photo-item img {
+      width: 220px;
+      height: 148px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      display: block;
+      background: var(--surface-2);
+    }
+    .photo-credit {
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      margin-top: 0.2rem;
+      text-align: right;
+      max-width: 220px;
+    }
     /* Route variants */
     .route-variants { margin-bottom: 1.25rem; }
     .route-variants-title {
@@ -1053,6 +1083,13 @@
               </div>
             </div>
             <ul class="timeline">
+
+            <div class="photo-strip">
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Kruhly_Wierch_-_Po%C5%82onina_Cary%C5%84ska.JPG/800px-Kruhly_Wierch_-_Po%C5%82onina_Cary%C5%84ska.JPG" alt="Połonina Caryńska keteros vaizdas" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Kruhly_Wierch_-_Po%C5%82onina_Cary%C5%84ska.JPG" target="_blank" rel="noopener">© J. Metselaar / Wikimedia CC-BY-SA</a></div>
+          </div>
+            </div>
               <li><span class="tl-time">08:30</span><span class="tl-text">Pusryčiai apartamentuose</span></li>
               <li><span class="tl-time">09:30</span><span class="tl-text">Išvažiavimas į Ustrzyki Górne (~50 min.)</span></li>
               <li><span class="tl-time">10:30</span><span class="tl-text">Pradžia — raudonas takas į Połonina Caryńska</span></li>
@@ -1140,6 +1177,17 @@
               </div>
             </div>
             <ul class="timeline">
+
+            <div class="photo-strip">
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bieszczadzki_Park_Narodowy_-_Tarnica.JPG/800px-Bieszczadzki_Park_Narodowy_-_Tarnica.JPG" alt="Tarnica — aukščiausias Bieszczady viršūnė 1346m" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Bieszczadzki_Park_Narodowy_-_Tarnica.JPG" target="_blank" rel="noopener">© BdPN / Wikimedia CC-BY-SA</a></div>
+          </div>
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Wo%C5%82osate_Tarnica.JPG/800px-Wo%C5%82osate_Tarnica.JPG" alt="Wołosate — žygio pradžios taškas" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Wo%C5%82osate_Tarnica.JPG" target="_blank" rel="noopener">© Silar / Wikimedia CC-BY-SA</a></div>
+          </div>
+            </div>
               <li><span class="tl-time">06:30</span><span class="tl-text">Ankstyvi pusryčiai</span></li>
               <li><span class="tl-time">07:00</span><span class="tl-text">Išvažiavimas į Wołosate ⚠️</span></li>
               <li><span class="tl-time">08:15</span><span class="tl-text">Pradžia — mėlynas takas iš Wołosate</span></li>
@@ -1169,6 +1217,13 @@
           <div class="day-body-inner">
             <div class="alert alert--danger">📞 <strong>REZERVACIJA BŪTINA:</strong> Hotel Karino SPA · +48 666 560 010 — rezervuokite 8 žmonių vizitą iš anksto!</div>
             <ul class="timeline">
+
+            <div class="photo-strip">
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Solina_Jezioro.JPG/800px-Solina_Jezioro.JPG" alt="Solinos ežeras — didžiausias Lenkijos rezervuaras" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Solina_Jezioro.JPG" target="_blank" rel="noopener">© Natalunka / Wikimedia CC-BY-SA</a></div>
+          </div>
+            </div>
               <li><span class="tl-time">10:00</span><span class="tl-text">Plaža na Cyplu Połańczyk — paplūdimys, maudymasis 🌊</span></li>
               <li><span class="tl-time">12:30</span><span class="tl-text">Pietūs prie ežero</span></li>
               <li><span class="tl-time">14:00</span><span class="tl-text">PKL Solina lynų keltuvas — panoraminiai vaizdai</span></li>
@@ -1257,6 +1312,21 @@
               </div>
             </div>
             <ul class="timeline">
+
+            <div class="photo-strip">
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bieszczadzki_Park_Narodowy_-_Po%C5%82onina_Wetli%C5%84ska_02.JPG/800px-Bieszczadzki_Park_Narodowy_-_Po%C5%82onina_Wetli%C5%84ska_02.JPG" alt="Połonina Wetlińska ketera" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Bieszczadzki_Park_Narodowy_-_Po%C5%82onina_Wetli%C5%84ska_02.JPG" target="_blank" rel="noopener">© BdPN / Wikimedia CC-BY-SA</a></div>
+          </div>
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Chatka_Puchatka_(by_Pudelek)_2.JPG/800px-Chatka_Puchatka_(by_Pudelek)_2.JPG" alt="Chatka Puchatka — kalnų prieglauda 1228m" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Chatka_Puchatka_(by_Pudelek)_2.JPG" target="_blank" rel="noopener">© Pudelek / Wikimedia CC-BY-SA</a></div>
+          </div>
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Smerek_-_view_from_the_red_trail_(Poland%2C_September_2009).JPG/800px-Smerek_-_view_from_the_red_trail_(Poland%2C_September_2009).JPG" alt="Smerek viršūnė 1222m" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Smerek_-_view_from_the_red_trail_(Poland%2C_September_2009).JPG" target="_blank" rel="noopener">© Commons / Wikimedia CC-BY-SA</a></div>
+          </div>
+            </div>
               <li><span class="tl-time">08:00</span><span class="tl-text">Sotūs pusryčiai — diena ilga</span></li>
               <li><span class="tl-time">09:00</span><span class="tl-text">Išvažiavimas į Wetliną (~50 min.)</span></li>
               <li><span class="tl-time">10:00</span><span class="tl-text">Pradžia — geltonas takas iš Przełęcz Wyżna</span></li>
@@ -1291,6 +1361,17 @@
               <span class="hike-chip" style="background:var(--teal-dim);border-color:rgba(58,140,140,0.25);color:#7ecece">📍 Majdan (Cisna)</span>
             </div>
             <ul class="timeline">
+
+            <div class="photo-strip">
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Bieszczadzka_Kolejka_Le%C5%9Bna.JPG/800px-Bieszczadzka_Kolejka_Le%C5%9Bna.JPG" alt="Bieszczadzka Kolejka Leśna — siaurasis geležinkelis" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Bieszczadzka_Kolejka_Le%C5%9Bna.JPG" target="_blank" rel="noopener">© Tomasz Chorwat / Wikimedia CC-BY-SA</a></div>
+          </div>
+          <div class="photo-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Zamek_w_Sanoku_od_strony_Sanu.jpg/800px-Zamek_w_Sanoku_od_strony_Sanu.jpg" alt="Sanoko karališka pilis — Beksińskio galerija" loading="lazy">
+            <div class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Zamek_w_Sanoku_od_strony_Sanu.jpg" target="_blank" rel="noopener">© Commons / Wikimedia CC-BY-SA</a></div>
+          </div>
+            </div>
               <li><span class="tl-time">08:30</span><span class="tl-text">Pusryčiai apartamentuose</span></li>
               <li><span class="tl-time">09:00</span><span class="tl-text">Išvažiavimas į Majdan (~40 min. nuo Baligródo)</span></li>
               <li><span class="tl-time">09:30</span><span class="tl-text">🚂 Kolejka: Majdan → Balnica (Lenkija–Slovakija pasienis) ir atgal (~2h)</span></li>
