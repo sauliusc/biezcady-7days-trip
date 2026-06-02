@@ -25,6 +25,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Download images from Wikimedia Commons
+        run: |
+          mkdir -p images
+          declare -A imgs=(
+            ["images/carynska.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Kruhly_Wierch_-_Po%C5%82onina_Cary%C5%84ska.JPG/800px-Kruhly_Wierch_-_Po%C5%82onina_Cary%C5%84ska.JPG"
+            ["images/wielka-rawka.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Wielka_Rawka_%28BPN%29.JPG/800px-Wielka_Rawka_%28BPN%29.JPG"
+            ["images/tarnica.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Bieszczadzki_Park_Narodowy_-_Tarnica.JPG/800px-Bieszczadzki_Park_Narodowy_-_Tarnica.JPG"
+            ["images/wolosate.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Wo%C5%82osate_Tarnica.JPG/800px-Wo%C5%82osate_Tarnica.JPG"
+            ["images/solina.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Solina_Jezioro.JPG/800px-Solina_Jezioro.JPG"
+            ["images/wetlinska.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bieszczadzki_Park_Narodowy_-_Po%C5%82onina_Wetli%C5%84ska_02.JPG/800px-Bieszczadzki_Park_Narodowy_-_Po%C5%82onina_Wetli%C5%84ska_02.JPG"
+            ["images/chatka-puchatka.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Chatka_Puchatka_%28by_Pudelek%29_2.JPG/800px-Chatka_Puchatka_%28by_Pudelek%29_2.JPG"
+            ["images/smerek.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Smerek_-_view_from_the_red_trail_%28Poland%2C_September_2009%29.JPG/800px-Smerek_-_view_from_the_red_trail_%28Poland%2C_September_2009%29.JPG"
+            ["images/kolejka.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Bieszczadzka_Kolejka_Le%C5%9Bna.JPG/800px-Bieszczadzka_Kolejka_Le%C5%9Bna.JPG"
+            ["images/sanok.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Zamek_w_Sanoku_od_strony_Sanu.jpg/800px-Zamek_w_Sanoku_od_strony_Sanu.jpg"
+          )
+          for path in "${!imgs[@]}"; do
+            curl -sL -A "Mozilla/5.0 (compatible; GitHubActions)" "${imgs[$path]}" -o "$path" \
+              && echo "✅ $path ($(wc -c < $path) bytes)" \
+              || echo "❌ Failed: $path"
+          done
+
+      - name: Inject build timestamp
+        run: |
+          BUILD_TIME=$(TZ="Europe/Vilnius" date "+%Y-%m-%d %H:%M LT")
+          sed -i "s|<!-- BUILD_TIME -->|${BUILD_TIME}|g" index.html
+          echo "Build time: ${BUILD_TIME}"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
