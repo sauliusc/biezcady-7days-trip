@@ -40,10 +40,16 @@ jobs:
             ["images/kolejka.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Bieszczadzka_Kolejka_Le%C5%9Bna.JPG/800px-Bieszczadzka_Kolejka_Le%C5%9Bna.JPG"
             ["images/sanok.jpg"]="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Zamek_w_Sanoku_od_strony_Sanu.jpg/800px-Zamek_w_Sanoku_od_strony_Sanu.jpg"
           )
+          UA="biezcady-trip-page/1.0 (https://github.com/sauliusc/biezcady-7days-trip; saulius@cebanauskai.lt)"
           for path in "${!imgs[@]}"; do
-            curl -sL -A "Mozilla/5.0 (compatible; GitHubActions)" "${imgs[$path]}" -o "$path" \
-              && echo "✅ $path ($(wc -c < $path) bytes)" \
-              || echo "❌ Failed: $path"
+            curl -sL -A "$UA" -H "Referer: https://commons.wikimedia.org/" "${imgs[$path]}" -o "$path"
+            SIZE=$(wc -c < "$path")
+            if [ "$SIZE" -gt 10000 ]; then
+              echo "✅ $path (${SIZE} bytes)"
+            else
+              echo "❌ $path too small (${SIZE} bytes)"
+              cat "$path"
+            fi
           done
 
       - name: Inject build timestamp
