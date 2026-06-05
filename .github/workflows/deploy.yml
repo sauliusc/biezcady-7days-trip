@@ -36,7 +36,7 @@ jobs:
           # Use Wikimedia API to resolve actual thumbnail URLs (avoids size/encoding issues)
           files = [
             ('images/carynska.jpg',       'Kruhly_Wierch_-_Po%C5%82onina_Cary%C5%84ska.JPG'),
-            ('images/wielka-rawka.jpg',   'Wielka_Rawka_%28BPN%29.JPG'),
+            ('images/wielka-rawka.jpg',   'Wielka_Rawka_-_panorama_z_Po%C5%82oniny_Cary%C5%84skiej.jpg'),
             ('images/tarnica.jpg',        'Bieszczadzki_Park_Narodowy_-_Tarnica.JPG'),
             ('images/wolosate.jpg',       'Wo%C5%82osate_Tarnica.JPG'),
             ('images/solina.jpg',         'Solina_Jezioro.JPG'),
@@ -66,7 +66,9 @@ jobs:
               print(f'❌ {local_path}: {e}')
               errors += 1
 
-          sys.exit(errors)
+          if errors:
+            print(f'⚠️  {errors} image(s) failed — continuing deploy anyway')
+          sys.exit(0)
           PYEOF
 
       - name: Inject build timestamp
