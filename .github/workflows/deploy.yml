@@ -25,59 +25,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download images from Wikimedia Commons
-        run: |
-          python3 << 'PYEOF'
-          import urllib.request, os, sys
-
-          os.makedirs('images', exist_ok=True)
-          UA = 'biezcady-trip-page/1.0 (https://github.com/sauliusc/biezcady-7days-trip; saulius@cebanauskai.lt)'
-
-          # Use Wikimedia API to resolve actual thumbnail URLs (avoids size/encoding issues)
-          files = [
-            ('images/carynska.jpg',       'Kruhly_Wierch_-_Po%C5%82onina_Cary%C5%84ska.JPG'),
-            ('images/tarnica.jpg',        'Bieszczadzki_Park_Narodowy_-_Tarnica.JPG'),
-            ('images/wolosate.jpg',       'Wo%C5%82osate_Tarnica.JPG'),
-            ('images/solina.jpg',         'Solina_Jezioro.JPG'),
-            ('images/wetlinska.jpg',      'Bieszczadzki_Park_Narodowy_-_Po%C5%82onina_Wetli%C5%84ska_02.JPG'),
-            ('images/chatka-puchatka.jpg','Chatka_Puchatka_%28by_Pudelek%29_2.JPG'),
-            ('images/smerek.jpg',         'Smerek_-_view_from_the_red_trail_%28Poland%2C_September_2009%29.JPG'),
-            ('images/kolejka.jpg',        'Bieszczadzka_Kolejka_Le%C5%9Bna.JPG'),
-            ('images/sanok.jpg',          'Zamek_w_Sanoku_od_strony_Sanu.jpg'),
-          ]
-
-          errors = 0
-          for local_path, fname in files:
-            api = f'https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url&iiurlwidth=640&titles=File:{fname}&format=json'
-            try:
-              req = urllib.request.Request(api, headers={'User-Agent': UA})
-              with urllib.request.urlopen(req, timeout=30) as r:
-                import json
-                data = json.loads(r.read())
-              pages = data['query']['pages']
-              thumb_url = next(iter(pages.values()))['imageinfo'][0]['thumburl']
-              req2 = urllib.request.Request(thumb_url, headers={'User-Agent': UA, 'Referer': 'https://commons.wikimedia.org/'})
-              with urllib.request.urlopen(req2, timeout=30) as r2, open(local_path, 'wb') as f:
-                content = r2.read()
-                f.write(content)
-              print(f'✅ {local_path} ({len(content):,} bytes)')
-            except Exception as e:
-              print(f'❌ {local_path}: {e}')
-              errors += 1
-
-          if errors:
-            print(f'⚠️  {errors} image(s) failed — continuing deploy anyway')
-          sys.exit(0)
-          PYEOF
-
       - name: Inject build timestamp
         run: |
           BUILD_TIME=$(TZ="Europe/Vilnius" date "+%Y-%m-%d %H:%M LT")
           sed -i "s|<!-- BUILD_TIME -->|${BUILD_TIME}|g" index.html
           echo "Build time: ${BUILD_TIME}"
-
-      - name: Disable Jekyll
-        run: touch .nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
