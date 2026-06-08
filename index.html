@@ -566,7 +566,7 @@
     }
     .variant-details.open { max-height: 600px; }
     .vd-inner {
-      padding-top: 0.75rem;
+      padding: 0.75rem 0 0.5rem;
       margin-top: 0.6rem;
       border-top: 1px solid var(--border);
       display: flex;
@@ -2077,8 +2077,9 @@
   );
 
   /* ── Collapsible day cards ───────────────────────────────────── */
+  // Start open with no max-height constraint so inner variant details can expand freely
   document.querySelectorAll('.day-body').forEach(body => {
-    body.style.maxHeight = body.scrollHeight + 'px';
+    body.style.maxHeight = 'none';
   });
 
   // Variant details collapsible
@@ -2096,13 +2097,20 @@
       const body = btn.closest('.day-card').querySelector('.day-body');
       const expanded = btn.getAttribute('aria-expanded') !== 'false';
       if (expanded) {
-        body.style.maxHeight = '0px';
+        // Capture current height before animating to 0
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => { body.style.maxHeight = '0px'; });
         btn.setAttribute('aria-expanded', 'false');
         btn.textContent = '▼';
       } else {
         body.style.maxHeight = body.scrollHeight + 'px';
         btn.setAttribute('aria-expanded', 'true');
         btn.textContent = '▲';
+        // After animation, remove constraint so inner details can expand
+        body.addEventListener('transitionend', function h() {
+          body.style.maxHeight = 'none';
+          body.removeEventListener('transitionend', h);
+        });
       }
     });
   });
