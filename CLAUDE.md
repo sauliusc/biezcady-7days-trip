@@ -40,20 +40,9 @@ Naudoti `mcp__github__create_pull_request`:
 ### 5. Auto-merge
 
 GitHub Actions automatiškai sumergins PR į `main` (žr. `.github/workflows/auto-merge.yml`).
+Po merge automatiškai paleidžiamas deploy — užtrunka ~2–3 minutes.
 
-### 6. Užtikrinti deploy
-
-**SVARBU:** Auto-merge ir deploy timing gali nesutapti — deploy kartais paleidžiamas PRIEŠ PR merge'ą ir pakeitimai nepatenkaa į puslapį. Po kiekvieno PR merge'o privaloma:
-
-```bash
-git fetch origin main && git checkout main && git pull origin main --rebase
-git commit --allow-empty -m "chore: trigger deploy"
-git push origin main
-```
-
-Šis tuščias commit garantuoja, kad deploy paleidžiamas su naujausiais pakeitimais.
-
-### 7. Pranešti vartotojui
+### 6. Pranešti vartotojui
 
 Baigus darbą, visada parodyti pranešimą:
 
