@@ -627,6 +627,63 @@
     }
     .spa-link:hover { color: var(--accent); }
 
+    /* ── Spot cards ──────────────────────────────────────────────── */
+    .spots-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 560px) { .spots-grid { grid-template-columns: repeat(2, 1fr); } }
+    .spot-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .spot-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .spot-thumb {
+      width: 100%;
+      border-radius: var(--radius-md);
+      margin-bottom: 0.65rem;
+      object-fit: cover;
+      height: 150px;
+      display: block;
+    }
+    .spot-emoji { font-size: 1.3rem; margin-bottom: 0.4rem; display: block; }
+    .spot-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .spot-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+    .spot-more-btn {
+      margin-top: 0.65rem;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-body);
+    }
+    .spot-more-btn:hover { color: var(--text); border-color: var(--border-light); background: var(--surface-3); }
+    .spot-info {
+      margin-top: 0.65rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.65rem;
+    }
+    .spot-history { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+    .spot-history p + p { margin-top: 0.5rem; }
+
     /* ── Budget ──────────────────────────────────────────────────── */
     .budget-table-wrap {
       overflow-x: auto;
@@ -914,6 +971,21 @@
               <span class="info-chip tip">🐴 Galima pamatyti laukinius huculus arklius ir danielius!</span>
               <span class="info-chip">🚌 Rekomenduojama: traversas + mikroautobusas atgal</span>
             </div>
+            <div class="spots-grid">
+              <div class="spot-card">
+                <img class="spot-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Bieszczady_-_view_from_Po%C5%82onina_Cary%C5%84ska_%282016%29_01.jpg/800px-Bieszczady_-_view_from_Po%C5%82onina_Cary%C5%84ska_%282016%29_01.jpg" alt="Połonina Caryńska" loading="lazy" onerror="this.style.display='none'">
+                <span class="spot-emoji">🏔️</span>
+                <div class="spot-name">Połonina Caryńska</div>
+                <div class="spot-desc">Atvirų pievų kalnagūbris 1297 m aukštyje — panoraminiai vaizdai į Ukrainą ir plačius miškus.</div>
+                <button class="spot-more-btn" onclick="toggleSpotInfo(this)">Skaityti daugiau ▼</button>
+                <div class="spot-info" hidden>
+                  <div class="spot-history">
+                    <p>Połonina Caryńska — viena gražiausių Bieszczadų poloninų (aukštakalnių pievų). Kalnagūbris driekiasi ~7 km ilgyje ir beveik visame kelyje siūlo atvirą panoramą: aiškiu oru matyti Ukrainos kalnai, Tarnica ir gilūs miškai.</p>
+                    <p>Pavadinimas kilęs iš rumunų kalbos žodžio <em>pālâne</em> — medžiaga, kuria kaimuose dengdavo stogus. Poloninose vasarą ganosi vietinių ūkininkų avių bandos, o rytais galima sutikti laukinius huculus arklius — seniausiąją lenkų arklio veislę.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -949,6 +1021,34 @@
             <div class="day-info-row">
               <span class="info-chip tip">💡 Rekomenduojama: Didysis ratas per Halicz ir Rozsypaniec (~20 km)</span>
             </div>
+            <div class="spots-grid">
+              <div class="spot-card">
+                <img class="spot-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Tarnica%2C_Bieszczady_%28by_Pudelek%29.JPG/800px-Tarnica%2C_Bieszczady_%28by_Pudelek%29.JPG" alt="Tarnica" loading="lazy" onerror="this.style.display='none'">
+                <span class="spot-emoji">🏔️</span>
+                <div class="spot-name">Tarnica — 1346 m</div>
+                <div class="spot-desc">Lenkijos Bieszczadų aukščiausias viršūnė — platus kalnagūbris su 360° panorama į tris šalis.</div>
+                <button class="spot-more-btn" onclick="toggleSpotInfo(this)">Skaityti daugiau ▼</button>
+                <div class="spot-info" hidden>
+                  <div class="spot-history">
+                    <p>Tarnica (1346 m v.j.l.) — aukščiausias Lenkijos Bieszczadų viršūnė. Nuo viršūnės atsiveria plati panorama: į rytus — Ukrainos Karpatai, į vakarus — Bieszczadų miškai iki horizonto, į pietus — Slovakija.</p>
+                    <p>Tradicinis maršrutas eina iš Wołosate kaimo (mėlynu taku) — 12 km pirmyn-atgal. Rekomenduojamas ankstyvas išvykimas: stovėjimo aikštelė Wołosate greitai užsipildo, o Tarnicos viršūnėje vėjo dažnai labai stiprus.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="spot-card">
+                <img class="spot-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lesko_synagogue_exterior.jpg/800px-Lesko_synagogue_exterior.jpg" alt="Lesko sinagoga" loading="lazy" onerror="this.style.display='none'">
+                <span class="spot-emoji">🕍</span>
+                <div class="spot-name">Lesko — XVI a. sinagoga</div>
+                <div class="spot-desc">Vienas geriausiai išlikusių Renesanso laikotarpio žydų paminklų Lenkijoje — XVI a. sinagoga su gynybiniais elementais.</div>
+                <button class="spot-more-btn" onclick="toggleSpotInfo(this)">Skaityti daugiau ▼</button>
+                <div class="spot-info" hidden>
+                  <div class="spot-history">
+                    <p>Lesko (vok. Lisko) — senas miestelis prie Sano upės, Bieszczadų vartai. Mieste išlikusi XVI a. renesansinė sinagoga su gynybiniais sienų elementais — viena seniausių išlikusių sinagogų Lenkijoje.</p>
+                    <p>Šiandien sinagogoje įsikūręs meno galerija. Grįžtant iš Tarnicos žygio verta sustoti 20–30 min. — miestelio senamiestis, XVI a. gynybinės sienos ir vaizdai į Saną yra nuostabūs.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -978,6 +1078,21 @@
               <span class="info-chip">📏 ~15 km iki ežero</span>
               <span class="info-chip">🌡 22–24°C vanduo</span>
               <span class="info-chip">⭐ Karino SPA 4.3 (918 atsiliepimų)</span>
+            </div>
+            <div class="spots-grid">
+              <div class="spot-card">
+                <img class="spot-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Solina_Lake_aerial_2.jpg/800px-Solina_Lake_aerial_2.jpg" alt="Solinos ežeras" loading="lazy" onerror="this.style.display='none'">
+                <span class="spot-emoji">🌊</span>
+                <div class="spot-name">Solinos ežeras</div>
+                <div class="spot-desc">Didžiausias Lenkijos dirbtinis ežeras — 22 km², kalnų aplinkoje. Paplūdimiai, laivai, bažnyčios varpinė po vandeniu.</div>
+                <button class="spot-more-btn" onclick="toggleSpotInfo(this)">Skaityti daugiau ▼</button>
+                <div class="spot-info" hidden>
+                  <div class="spot-history">
+                    <p>Solinos ežeras (Jezioro Solińskie) — didžiausias Lenkijos dirbtinis vandens telkinys, sukurtas 1968 m. užtvenkus Saną. Ežero plotas 22 km², gylis iki 60 m. Vanduo šiltas ir švariar — idealus maudymuisi liepos mėnesį.</p>
+                    <p>Kalnuotas ežero krantas, įlankas ir pusiasaliai daro jį unikaliu. Ties Solina kaimu povandeniniame griuvėsyje tebestovi senovinės Solinos bažnyčios varpinė — aiškiu oru matoma iš virš vandens. Gyventojai buvo iškeldinti 1960-aisiais prieš užtvenkiant upę.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1014,6 +1129,34 @@
             <div class="day-info-row">
               <span class="info-chip tip">💡 Rekomenduojama: klasikinis traversas Przełęcz Wyżna → Smerek → Kalnica</span>
             </div>
+            <div class="spots-grid">
+              <div class="spot-card">
+                <img class="spot-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Po%C5%82onina_Wetli%C5%84ska_B1.jpg/800px-Po%C5%82onina_Wetli%C5%84ska_B1.jpg" alt="Połonina Wetlińska" loading="lazy" onerror="this.style.display='none'">
+                <span class="spot-emoji">🏔️</span>
+                <div class="spot-name">Połonina Wetlińska</div>
+                <div class="spot-desc">Plačiausias Bieszczadų kalnagūbris — atviros pievos, Chatka Puchatka prieglobstis viršūnėje, tolimi vaizdai.</div>
+                <button class="spot-more-btn" onclick="toggleSpotInfo(this)">Skaityti daugiau ▼</button>
+                <div class="spot-info" hidden>
+                  <div class="spot-history">
+                    <p>Połonina Wetlińska — plačiausias ir ilgiausias Bieszczadų poloninos kalnagūbris. Driekiasi ~10 km ilgyje, beveik visai be medžių — vaizdai į visas puses. Vasarą čia ganosi avys ir galima sutikti laukinius žirgus.</p>
+                    <p>Viršūnėje stovi legendinė Chatka Puchatka — kalnų prieglobstis, žinomas nuo 1933 m. Čia galima gauti arbatos, sriubos ir nakvoti. Prieglobsčio pavadinimas kilęs iš A.A. Milne'o knygos „Vinis Pūkuotukas" (lenkų kalba: Chatka Puchatka).</p>
+                  </div>
+                </div>
+              </div>
+              <div class="spot-card">
+                <img class="spot-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Smerek_peak_Bieszczady.jpg/800px-Smerek_peak_Bieszczady.jpg" alt="Smerek" loading="lazy" onerror="this.style.display='none'">
+                <span class="spot-emoji">⛰️</span>
+                <div class="spot-name">Smerek — 1222 m</div>
+                <div class="spot-desc">Liesnas kalnas ties poloninos galu — traversas per abi viršūnes vienoje dienoje, grįžimas per Kalnicą.</div>
+                <button class="spot-more-btn" onclick="toggleSpotInfo(this)">Skaityti daugiau ▼</button>
+                <div class="spot-info" hidden>
+                  <div class="spot-history">
+                    <p>Smerek (1222 m) — kalnas ties Połonina Wetlińska pietine dalimi. Pavadinimas kilęs iš lemkų kalbos žodžio, reiškiančio „eglė". Kalno šlaitai apaugę tankiais bukiniais ir eglių miškais — kontrastas atvirai poloninai.</p>
+                    <p>Klasikinis maršrutas: Przełęcz Wyżna → Połonina Wetlińska → Chatka Puchatka → Smerek → Kalnica (~16 km, 5–6 val.). Tai vienas geriausių traversų visuose Bieszczaduose.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </article>
@@ -1049,6 +1192,21 @@
               <span class="info-chip">🎨 Didžiausia Beksińskio kolekcija pasaulyje</span>
               <span class="info-chip">🎟 ~25 PLN/žm. bilietai</span>
               <span class="info-chip tip">💡 Muziejus iki 17–18:00 — atvykti iki 16:00!</span>
+            </div>
+            <div class="spots-grid">
+              <div class="spot-card">
+                <img class="spot-thumb" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Sanok_-_Castle.jpg/800px-Sanok_-_Castle.jpg" alt="Sanoko pilis" loading="lazy" onerror="this.style.display='none'">
+                <span class="spot-emoji">🖼️</span>
+                <div class="spot-name">Beksińskio galerija Sanoke</div>
+                <div class="spot-desc">Didžiausia Zdzisław Beksiński darbų kolekcija pasaulyje — surrealistinė tapyba Sanoko pilyje.</div>
+                <button class="spot-more-btn" onclick="toggleSpotInfo(this)">Skaityti daugiau ▼</button>
+                <div class="spot-info" hidden>
+                  <div class="spot-history">
+                    <p>Zdzisław Beksiński (1929–2005) — vienas žymiausių lenkų dailininkų, gimęs Sanoke. Jo surrealistiniai paveikslai, kuriuos jis pats vadino „fantastine realybe", vaizduoja grotesko, mirties ir svajonių pasaulius tamsiais, intensyviais tonais.</p>
+                    <p>Sanoko pilyje veikia jo vardo galerija su daugiau nei 500 darbų — tai didžiausia jo kolekcija pasaulyje. Dailininkas tragiškai žuvo Varšuvoje 2005 m. Muziejus yra vienas neįprasčiausių meninių išgyvenimų Lenkijoje.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1293,7 +1451,19 @@
 </footer>
 
 <script>
-  /* ── Nav scroll ──────────────────────────────────────────────── */
+  /* ── Spot info toggle ───────────────────────────────────────── */
+  function toggleSpotInfo(btn) {
+    const info = btn.nextElementSibling;
+    const open = !info.hidden;
+    info.hidden = open;
+    btn.textContent = open ? 'Skaityti daugiau ▼' : 'Uždaryti ▲';
+    if (!open) {
+      const body = btn.closest('.day-body');
+      if (body) body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  }
+
+  /* ── Day card toggle ─────────────────────────────────────────── */
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
