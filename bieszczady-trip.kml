@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Bieszczady 2025 — Liepos 4–11</name>
+  <description>8 dienų kelionės planas, 8 žmonės. Bazė: Chata Sękata, Baligród.</description>
+
+  <!-- Styles -->
+  <Style id="base"><IconStyle><color>ff4ca8c9</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href></Icon></IconStyle></Style>
+  <Style id="hiking"><IconStyle><color>ff60b05d</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon></IconStyle></Style>
+  <Style id="parking"><IconStyle><color>ff4c6b4a</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/grn-square.png</href></Icon></IconStyle></Style>
+  <Style id="restaurant"><IconStyle><color>ff4a7ac9</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon></IconStyle></Style>
+  <Style id="culture"><IconStyle><color>ffc96f9c</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href></Icon></IconStyle></Style>
+  <Style id="activity"><IconStyle><color>ff8c8c3a</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/ltblu-circle.png</href></Icon></IconStyle></Style>
+  <Style id="spa"><IconStyle><color>ff4ca8c9</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/wht-circle.png</href></Icon></IconStyle></Style>
+  <Style id="weather"><IconStyle><color>ff9a7a5a</color><Icon><href>https://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon></IconStyle></Style>
+
+  <!-- === BAZĖ === -->
+  <Folder><name>🏠 Bazė</name>
+    <Placemark>
+      <name>Chata Sękata — Bazė</name>
+      <description>Kazimierza Wielkiego, Baligród&#10;+48 793 332 363&#10;Atvykimas 16:00–19:00</description>
+      <styleUrl>#base</styleUrl>
+      <Point><coordinates>22.2854,49.3428,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+  <!-- === PARKAVIMAS === -->
+  <Folder><name>🅿️ Parkavimas</name>
+    <Placemark>
+      <name>Parkavimas — Ustrzyki Górne</name>
+      <description>2 Diena · Caryńska&#10;Pradinis taškas žygiui&#10;Wczasowa g.</description>
+      <styleUrl>#parking</styleUrl>
+      <Point><coordinates>22.5236,49.1025,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Parkavimas — Wołosate</name>
+      <description>3 Diena · Tarnica&#10;⚠️ Išvažiavimas 07:00!</description>
+      <styleUrl>#parking</styleUrl>
+      <Point><coordinates>22.5758,49.0439,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Parkavimas — Przełęcz Wyżna / Wetlina</name>
+      <description>5 Diena · Wetlińska&#10;Pradinis taškas žygiui</description>
+      <styleUrl>#parking</styleUrl>
+      <Point><coordinates>22.4961,49.1194,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Kalnica / Wetlina — finišas</name>
+      <description>5 Diena · Variantas A finišas&#10;Autobusiuku atgal</description>
+      <styleUrl>#parking</styleUrl>
+      <Point><coordinates>22.4428,49.1481,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+  <!-- === ŽYGIAI === -->
+  <Folder><name>⛰️ Žygiai ir viršūnės</name>
+    <Placemark>
+      <name>Połonina Caryńska — 1297m</name>
+      <description>2 Diena · Sekmadienis&#10;🥾 Žygis · 18 km · +640m&#10;Panoraminis vaizdas į Ukrainą</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.5417,49.0875,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Wielka Rawka — 1304m</name>
+      <description>2 Diena · Variantas A&#10;Ridge walk su Caryńska&#10;Aukščiausias ridge taškas</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.5580,49.0890,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Tarnica — 1346m (aukščiausias taškas)</name>
+      <description>3 Diena · Pirmadienis&#10;🥾 Aukščiausias Bieszczady taškas&#10;14 km · +700m · 5h</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.5694,49.0583,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Halicz — 1333m</name>
+      <description>3 Diena · Variantas A&#10;Panorama į Ukrainą&#10;GSB raudonas takas</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.5972,49.0536,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Rozsypaniec — 1282m</name>
+      <description>3 Diena · Variantas A&#10;Ridge tęsinys po Haliczas</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.6122,49.0590,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Połonina Wetlińska</name>
+      <description>5 Diena · Trečiadienis&#10;🥾 Ilgiausia connected ridge&#10;🐺 Vilkų teritorija — triukšmaukite!</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.4750,49.1300,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Chatka Puchatka — 1228m</name>
+      <description>5 Diena · Trečiadienis&#10;Kalnų prieglauda · karšti gėrimai&#10;Orientyras Wetlińska ridge'e</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.4833,49.1347,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Smerek — 1222m</name>
+      <description>5 Diena · Trečiadienis&#10;🥾 Antra dienos viršūnė&#10;Puiki panorama į pietryčius</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.4458,49.1525,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Balnica — Slovakijos pasienis</name>
+      <description>6 Diena&#10;Kolejka galinis taškas&#10;Lenkija–Slovakija pasienio stotis</description>
+      <styleUrl>#hiking</styleUrl>
+      <Point><coordinates>22.2733,49.1200,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+  <!-- === SPA ir poilsis === -->
+  <Folder><name>🧖 SPA ir poilsis</name>
+    <Placemark>
+      <name>Solinos ežeras — paplūdimys</name>
+      <description>4 Diena · Antradienis&#10;🏖️ Paplūdimys, laivas&#10;Didžiausias Lenkijos rezervuaras</description>
+      <styleUrl>#spa</styleUrl>
+      <Point><coordinates>22.4553,49.3742,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Hotel Karino SPA</name>
+      <description>4 Diena · Antradienis&#10;🧖 Baseinas, sauna, džiakuzi&#10;+48 666 560 010&#10;⭐ 4.3/5&#10;hotelkarino.pl</description>
+      <styleUrl>#spa</styleUrl>
+      <Point><coordinates>22.4461,49.3639,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Caryńska Resort SPA</name>
+      <description>7 Diena · Penktadienis&#10;🧖 Pusdienio SPA&#10;+48 13 469 10 99&#10;carynska.bieszczady.pl</description>
+      <styleUrl>#spa</styleUrl>
+      <Point><coordinates>22.5600,49.0850,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Ustrzyki Dolne</name>
+      <description>7 Diena · Penktadienis&#10;Popietinis apsipirkimas&#10;Turgus, suvenyrų parduotuvės</description>
+      <styleUrl>#spa</styleUrl>
+      <Point><coordinates>22.5847,49.4319,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+  <!-- === KULTŪRA === -->
+  <Folder><name>🏛️ Kultūra ir istorija</name>
+    <Placemark>
+      <name>Bieszczadzka Kolejka — Majdan stotis</name>
+      <description>6 Diena · Ketvirtadienis&#10;🚂 Siaurasis geležinkelis&#10;Majdan → Balnica ir atgal (~2h)&#10;kolejka.bieszczady.pl</description>
+      <styleUrl>#activity</styleUrl>
+      <Point><coordinates>22.3369,49.2436,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Sanok — Beksińskio muziejus</name>
+      <description>6 Diena · Ketvirtadienis&#10;🖼️ Muzeum Historyczne&#10;Zdzisław Beksiński galerija&#10;Bilietas ~25 PLN&#10;muzeum.sanok.pl</description>
+      <styleUrl>#culture</styleUrl>
+      <Point><coordinates>22.2036,49.5583,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Lesko — XIII a. sinagoga</name>
+      <description>Dienos 3 sustojimas&#10;🕍 XIII a. sinagoga&#10;Senamiestis, Renesanso pilies liekanos</description>
+      <styleUrl>#culture</styleUrl>
+      <Point><coordinates>22.3347,49.4706,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Cerkiew w Smolniku (UNESCO)</name>
+      <description>2 arba 3 diena · grįžtant&#10;1791 m. medinė cerkvė&#10;+48 13 461 2285 · Nemokama</description>
+      <styleUrl>#culture</styleUrl>
+      <Point><coordinates>22.6883,49.2097,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Cerkiew w Chmielu</name>
+      <description>3 diena · grįžtant iš Wołosate&#10;1906 m. stačiatikių cerkvė&#10;Nemokama</description>
+      <styleUrl>#culture</styleUrl>
+      <Point><coordinates>22.6014,49.2206,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Cerkiew w Turzańsku (UNESCO)</name>
+      <description>5 diena · grįžtant per Komańczą&#10;1801–1803 · 5 kupolai&#10;Aukščiausias medinė varpinė Lenkijoje</description>
+      <styleUrl>#culture</styleUrl>
+      <Point><coordinates>22.5526,49.2668,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Muzeum Immersyjne FANTO — Ustrzyki Dolne</name>
+      <description>6 arba 7 diena&#10;Kolejowa 2, Ustrzyki Dolne&#10;+48 530 972 448&#10;40 PLN / 30 PLN&#10;Vienintelis imersinis muziejus Bieszczaduose&#10;bcdk.pl</description>
+      <styleUrl>#culture</styleUrl>
+      <Point><coordinates>22.5317,49.3485,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+  <!-- === VEIKLOS === -->
+  <Folder><name>🚀 Veiklos ir atrakcijos</name>
+    <Placemark>
+      <name>Zagroda pokazowa żubrów — Muczne</name>
+      <description>2 arba 3 diena · grįžtant&#10;9 europiniai stumbriai · Nemokama&#10;Kasdien 9:00–19:00&#10;bdpn.gov.pl</description>
+      <styleUrl>#activity</styleUrl>
+      <Point><coordinates>22.6090,49.1613,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Gondola / liftovka — Solina / Jawor</name>
+      <description>4 diena · Solinos dienoje&#10;~1,5 km lynų keltuvas&#10;Panoraminis vaizdas į Solinos ežerą</description>
+      <styleUrl>#activity</styleUrl>
+      <Point><coordinates>22.3667,49.0850,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bieszczadzka Furia — rafting Sano upe</name>
+      <description>4 diena arba 1 diena&#10;Bieszczadzka 5, Zagórz&#10;+48 721 215 453&#10;9 km · ~2h · ~60–100 PLN/žm.&#10;zielonyponton.pl</description>
+      <styleUrl>#activity</styleUrl>
+      <Point><coordinates>21.9476,49.5092,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bieszczadzkie drezyny — Majdan</name>
+      <description>6 diena · po Kolejka&#10;Pedaliniai vagonėliai senosiomis bėginėmis&#10;drezynybieszczadzkie.pl</description>
+      <styleUrl>#activity</styleUrl>
+      <Point><coordinates>22.3312,49.2430,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Pijalnia Czekolady M.Pelczar — Korczyna</name>
+      <description>Blogas oras B arba 6 diena&#10;Rynek 18, Korczyna&#10;+48 607 996 333&#10;Rankų darbo šokoladai, pijamoji šokoladas&#10;pijalnia.mpelczar.pl</description>
+      <styleUrl>#activity</styleUrl>
+      <Point><coordinates>21.4817,49.7186,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+  <!-- === BLOGAS ORAS === -->
+  <Folder><name>🌧️ Blogas oras — rezerviniai planai</name>
+    <Placemark>
+      <name>Łańcut pilis</name>
+      <description>Blogas oras A&#10;Zamkowa 1, Łańcut&#10;~100 kambarių, vežimų muziejus&#10;Bilietas ~25 PLN&#10;zamek-lancut.pl</description>
+      <styleUrl>#weather</styleUrl>
+      <Point><coordinates>22.2289,50.0681,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Rzeszów — pazeminiai tuneliai</name>
+      <description>Blogas oras A&#10;Rinkos aikštė, Rzeszów&#10;XVII a. gynybiniai tuneliai&#10;Bilietas ~15 PLN&#10;podziemiarynku.com</description>
+      <styleUrl>#weather</styleUrl>
+      <Point><coordinates>22.0042,50.0412,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Rzeszów senamiestis</name>
+      <description>Blogas oras A&#10;Barokinė rotušė, kavinės&#10;Nemokamas pasivaikščiojimas</description>
+      <styleUrl>#weather</styleUrl>
+      <Point><coordinates>22.0048,50.0418,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Huta Szkła Krosno — stiklo fabrikas</name>
+      <description>Blogas oras B&#10;Białobrzeska 55, Krosno&#10;Veikiantis stiklo fabrikas&#10;Stebėk gamybą · pats išpūsk stiklinę</description>
+      <styleUrl>#weather</styleUrl>
+      <Point><coordinates>21.7624,49.6928,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Krosno senamiestis</name>
+      <description>Blogas oras B&#10;Gotikos bažnyčia, Barbakanas&#10;Ostrógskių mauzoliejus</description>
+      <styleUrl>#weather</styleUrl>
+      <Point><coordinates>21.7698,49.6908,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+  <!-- === RESTORANAI === -->
+  <Folder><name>🍽️ Restoranai</name>
+    <Placemark>
+      <name>Mąka i Wino — Lesko</name>
+      <description>2 &amp; 8 Diena&#10;Ossolińskich 2&#10;+48 502 867 550&#10;Europietiška kuchnia, vietiniai ingredientai</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.3337,49.4706,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Restauracja Szelców — Lesko</name>
+      <description>2 &amp; 8 Diena&#10;Piłsudskiego 37&#10;+48 695 561 999&#10;Regioninė lenkų kuchnia</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.3355,49.4695,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Bistro Skarbiec — Lesko</name>
+      <description>2 &amp; 8 Diena&#10;Ossolińskich 1&#10;+48 13 492 74 68&#10;Tradiciniai patiekalai</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.3335,49.4708,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Restauracja Niedźwiadek — Ustrzyki Dolne</name>
+      <description>3 Diena&#10;Dworcowa 5&#10;+48 13 461 14 61&#10;Placek po bieszczadzku, pstrąg</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.5860,49.4320,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Huculska Restaurant — Ustrzyki Dolne</name>
+      <description>3 Diena&#10;Ukrainiečių/lenkų kuchnia, huculų receptūros</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.5850,49.4315,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Piwniczka — Ustrzyki Dolne</name>
+      <description>3 Diena&#10;Tradicinė kuchnia, klimatiškas rūsys</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.5855,49.4310,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Karczma Solina (Jędrulowa Chata)</name>
+      <description>4 Diena&#10;Solina 38a&#10;+48 603 552 553&#10;Stirniena, blynai, baravykai · 300m nuo užtvankos</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.4315,49.3787,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Siekierezada — Cisna</name>
+      <description>4 &amp; 5 Diena&#10;Cisna 92&#10;+48 13 468 64 66&#10;Žeberka, elnias · 4.5★ (12k atsiliepimų)</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.3512,49.2205,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Chata Wędrowca — Wetlina</name>
+      <description>5 Diena&#10;Wetlina 113&#10;+48 500 225 533&#10;Legendiniai blynai su uogomis</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.4652,49.1578,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Oberża pod Kudłatym Aniołem — Cisna</name>
+      <description>5 Diena&#10;Cisna 130&#10;+48 664 390 898&#10;Jaukas, verandos vaizdai</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.3520,49.2220,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Schronisko Aniołów — Wetlina</name>
+      <description>5 diena · vakarienei po Wetlińska žygio&#10;Wetlina 113&#10;+48 661 075 340&#10;Kresy virtuvė · Milžiniški blynai (45 PLN / 2 žm.)&#10;schronisko-aniolow.pl</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.4187,49.2488,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Proziakownia — Sanok</name>
+      <description>6 Diena&#10;Rynek 22&#10;+48 531 143 038&#10;Prozaki · 4.7★</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.2018,49.5575,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Stary Kredens — Sanok</name>
+      <description>6 Diena&#10;Rinkos aikštė · namiška kuchnia, česnakinė sriuba</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.2015,49.5570,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Jadło Podkarpackie — Sanok</name>
+      <description>6 Diena&#10;Tradiciniai Podkarpatijos patiekalai</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.2020,49.5565,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>We mgle i w szkle — Jabłonki</name>
+      <description>1 &amp; 7 Diena&#10;Jabłonki 18A&#10;+48 608 436 118&#10;Regioninė Bieszczadų virtuvė · ~12 km nuo bazės</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.3212,49.3052,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Karczma Miś — Baligród</name>
+      <description>1 &amp; 7 Diena&#10;Bieszczadzka 13&#10;+48 13 468 42 46&#10;Tradicinė lenkų virtuvė · ~1 km nuo bazės</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.2960,49.3345,0</coordinates></Point>
+    </Placemark>
+    <Placemark>
+      <name>Pizzeria Roma — Baligród</name>
+      <description>1 &amp; 7 Diena&#10;Baligród centras&#10;Pica, mėsa, salotos · ~0.5 km nuo bazės</description>
+      <styleUrl>#restaurant</styleUrl>
+      <Point><coordinates>22.2970,49.3355,0</coordinates></Point>
+    </Placemark>
+  </Folder>
+
+</Document>
+</kml>
