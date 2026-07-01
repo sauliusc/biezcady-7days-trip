@@ -878,6 +878,15 @@
 
     /* ── Packing List ────────────────────────────────────────────── */
     #packing { background: var(--surface); }
+    .packing-category { margin-bottom: 2rem; }
+    .packing-category:last-child { margin-bottom: 0; }
+    .pack-cat-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
     .packing-grid {
       display: grid;
       gap: 0.6rem;
@@ -2125,17 +2134,75 @@
 <section id="packing">
   <div class="container">
     <h2 class="section-title aos">Ką paimti</h2>
-    <p class="section-lead aos">Atžymėkite — sąrašas išsaugomas naršyklėje.</p>
-    <div class="packing-grid">
-      <label class="pack-item aos"><input type="checkbox" data-pack="0"><span class="checkmark"></span><span class="pack-text">🥾 Tinkami batai žygiams (ne sportbačiai)</span></label>
-      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="1"><span class="checkmark"></span><span class="pack-text">🧥 Lietpaltis arba membraninė striukė</span></label>
-      <label class="pack-item aos"><input type="checkbox" data-pack="2"><span class="checkmark"></span><span class="pack-text">☀️ Saulės kremas SPF 50+</span></label>
-      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="3"><span class="checkmark"></span><span class="pack-text">🦯 Žygio lazdelės</span></label>
-      <label class="pack-item aos"><input type="checkbox" data-pack="4"><span class="checkmark"></span><span class="pack-text">🩹 Pirmos pagalbos vaistinėlė</span></label>
-      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="5"><span class="checkmark"></span><span class="pack-text">💵 PLN grynaisiais — daug kavinių nepriima kortelių</span></label>
-      <label class="pack-item aos"><input type="checkbox" data-pack="6"><span class="checkmark"></span><span class="pack-text">🗺️ Komoot arba Mapy.cz oflaininiai žemėlapiai</span></label>
-      <label class="pack-item aos aos-delay-1"><input type="checkbox" data-pack="7"><span class="checkmark"></span><span class="pack-text">🩱 Maudymosi rūbai (Solina + SPA)</span></label>
+    <p class="section-lead aos">Rekomenduojamas sąrašas vyrams · Atžymėkite — sąrašas išsaugomas naršyklėje.</p>
+
+    <div class="packing-category aos">
+      <h3 class="pack-cat-title">👕 Apranga — viršutinė dalis</h3>
+      <div class="packing-grid">
+        <label class="pack-item"><input type="checkbox" data-pack="0"><span class="checkmark"></span><span class="pack-text">5–6 kvėpuojantys marškinėliai (merino/sintetika)</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="1"><span class="checkmark"></span><span class="pack-text">2 marškiniai ilgomis rankovėmis</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="2"><span class="checkmark"></span><span class="pack-text">1 lengvas flisas</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="3"><span class="checkmark"></span><span class="pack-text">🧥 Membraninė/lietaus striukė</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="4"><span class="checkmark"></span><span class="pack-text">Švarkas laisvalaikiui/vakarienėms</span></label>
+      </div>
     </div>
+
+    <div class="packing-category aos">
+      <h3 class="pack-cat-title">🩳 Apranga — apatinė dalis</h3>
+      <div class="packing-grid">
+        <label class="pack-item"><input type="checkbox" data-pack="5"><span class="checkmark"></span><span class="pack-text">2 poros žygio kelnių (viena nusegama iki šortų)</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="6"><span class="checkmark"></span><span class="pack-text">1–2 poros laisvalaikio šortų</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="7"><span class="checkmark"></span><span class="pack-text">7–8 poros apatinių</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="8"><span class="checkmark"></span><span class="pack-text">6–8 poros žygio kojinių (merino vilna)</span></label>
+      </div>
+    </div>
+
+    <div class="packing-category aos">
+      <h3 class="pack-cat-title">🥾 Avalynė</h3>
+      <div class="packing-grid">
+        <label class="pack-item"><input type="checkbox" data-pack="9"><span class="checkmark"></span><span class="pack-text">Žygio batai su čiurnos atrama (ne sportbačiai)</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="10"><span class="checkmark"></span><span class="pack-text">Lengvi laisvalaikio bateliai/sandalai</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="11"><span class="checkmark"></span><span class="pack-text">Vandeniui atsparūs sandalai/šlepetės</span></label>
+      </div>
+    </div>
+
+    <div class="packing-category aos">
+      <h3 class="pack-cat-title">🩱 Maudymosi / SPA reikmenys</h3>
+      <div class="packing-grid">
+        <label class="pack-item"><input type="checkbox" data-pack="12"><span class="checkmark"></span><span class="pack-text">Maudymosi kelnaitės (1 pora)</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="13"><span class="checkmark"></span><span class="pack-text">Greitai džiūstantis mikropluošto rankšluostis</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="14"><span class="checkmark"></span><span class="pack-text">Šlepetės baseinui/saunai</span></label>
+      </div>
+    </div>
+
+    <div class="packing-category aos">
+      <h3 class="pack-cat-title">🥾 Žygiams specifiniai daiktai</h3>
+      <div class="packing-grid">
+        <label class="pack-item"><input type="checkbox" data-pack="15"><span class="checkmark"></span><span class="pack-text">☀️ Kepurė nuo saulės</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="16"><span class="checkmark"></span><span class="pack-text">Saulės akiniai</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="17"><span class="checkmark"></span><span class="pack-text">Kuprinė 20–25 l su vandens rezervuaru/buteliais</span></label>
+      </div>
+    </div>
+
+    <div class="packing-category aos">
+      <h3 class="pack-cat-title">🧴 Higiena ir kita</h3>
+      <div class="packing-grid">
+        <label class="pack-item"><input type="checkbox" data-pack="18"><span class="checkmark"></span><span class="pack-text">Vabzdžių repelentas</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="19"><span class="checkmark"></span><span class="pack-text">Lūpų balzamas su SPF ir kūno kremas nuo saulės</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="20"><span class="checkmark"></span><span class="pack-text">Maišelis/krepšys nešvariems drabužiams</span></label>
+      </div>
+    </div>
+
+    <div class="packing-category aos">
+      <h3 class="pack-cat-title">🪪 Dokumentai</h3>
+      <div class="packing-grid">
+        <label class="pack-item"><input type="checkbox" data-pack="21"><span class="checkmark"></span><span class="pack-text">Asmens dokumentas / pasas</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="22"><span class="checkmark"></span><span class="pack-text">Vairuotojo pažymėjimas</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="23"><span class="checkmark"></span><span class="pack-text">Kelionių/sveikatos draudimo dokumentai (EHIC)</span></label>
+        <label class="pack-item"><input type="checkbox" data-pack="24"><span class="checkmark"></span><span class="pack-text">Automobilio dokumentai</span></label>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -2301,7 +2368,7 @@
   });
 
   /* ── Packing list localStorage ───────────────────────────────── */
-  const PACK_KEY = 'bieszczady-packing-2026';
+  const PACK_KEY = 'bieszczady-packing-2026-vyrams';
   const saved = JSON.parse(localStorage.getItem(PACK_KEY) || '{}');
   document.querySelectorAll('[data-pack]').forEach(cb => {
     const i = cb.dataset.pack;
